@@ -1210,16 +1210,27 @@ ul{ list-style:none; }
 .social-proof-card .btn{ margin-top:6px; }
 
 .instagram-feed{
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-  width:100%;
-  padding-bottom:4px;
-  scroll-snap-type:x mandatory;
+  position:relative;
+  width:163px;
+  height:345px;
+  margin:0 auto;
+  overflow:hidden;
 }
-.instagram-feed .instagram-media{
-  flex:0 0 auto;
-  scroll-snap-align:start;
+.instagram-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity .6s ease;
+  pointer-events:none;
+}
+.instagram-slide.active{
+  opacity:1;
+  pointer-events:auto;
+}
+.instagram-embed-scale{
+  width:326px;
+  transform:scale(.5);
+  transform-origin:top left;
 }
 @media (max-width:700px){
   .social-proof-grid{ grid-template-columns:1fr; }
