@@ -845,7 +845,7 @@ ul{ list-style:none; }
 .footer-grid{
   display:flex;
   flex-wrap:wrap;
-  justify-content:center;
+  justify-content:flex-start;
   gap:2cm;
   padding-bottom:50px;
 }
