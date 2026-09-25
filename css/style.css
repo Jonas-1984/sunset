@@ -1209,29 +1209,6 @@ ul{ list-style:none; }
 }
 .social-proof-card .btn{ margin-top:6px; }
 
-.instagram-feed{
-  position:relative;
-  width:163px;
-  height:345px;
-  margin:0 auto;
-  overflow:hidden;
-}
-.instagram-slide{
-  position:absolute;
-  inset:0;
-  opacity:0;
-  transition:opacity .6s ease;
-  pointer-events:none;
-}
-.instagram-slide.active{
-  opacity:1;
-  pointer-events:auto;
-}
-.instagram-embed-scale{
-  width:326px;
-  transform:scale(.5);
-  transform-origin:top left;
-}
 @media (max-width:700px){
   .social-proof-grid{ grid-template-columns:1fr; }
 }

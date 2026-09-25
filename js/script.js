@@ -474,14 +474,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modal) tile.addEventListener('click', () => openModal(modal));
   });
 
-  /* ---------------- Instagram feed auto-carousel ---------------- */
-  const igSlides = document.querySelectorAll('#instagram-feed .instagram-slide');
-  if (igSlides.length) {
-    let igIndex = 0;
-    setInterval(() => {
-      igIndex = (igIndex + 1) % igSlides.length;
-      igSlides.forEach((slide, i) => slide.classList.toggle('active', i === igIndex));
-    }, 6000);
-  }
-
 });
