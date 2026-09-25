@@ -809,14 +809,14 @@ ul{ list-style:none; }
   font-size:.9rem;
   color:var(--coral);
 }
-.drink-menu-quote{
+.modal-body .drink-menu-quote{
   margin-top:24px;
   font-size:clamp(1.2rem, 2.2vw, 1.5rem);
 }
 
 .modal-overlay[id^="drink-modal-"] h3{
   font-family:"Segoe UI", sans-serif;
-  font-size:16px;
+  font-size:24px;
 }
 
 .modal-title-icon{
@@ -837,11 +837,11 @@ ul{ list-style:none; }
 .drink-menu-list li p,
 .drink-menu-note{
   font-family:"Segoe UI", sans-serif;
-  font-size:12px;
+  font-size:20px;
 }
 .drink-menu-list .specialty-item-head h4 sup{
   font-family:"Segoe UI", sans-serif;
-  font-size:9px;
+  font-size:18px;
 }
 
 .menu-quote{
