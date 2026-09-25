@@ -1183,7 +1183,7 @@ ul{ list-style:none; }
 
 .social-proof-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:.85fr 1.15fr;
   gap:32px;
   margin:32px auto 0;
 }
