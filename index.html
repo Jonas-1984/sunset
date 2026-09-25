@@ -84,6 +84,10 @@
       <button class="menu-tab" data-target="getraenke">Getränke</button>
     </div>
 
+    <div class="allergen-info-row reveal">
+      <button class="allergen-info-btn" id="allergen-info-btn">Zusatzstoff- und Allergenkennzeichnung</button>
+    </div>
+
     <div class="menu-panels">
 
       <div class="menu-panel active" id="salate">
@@ -637,6 +641,66 @@
       <h4>Umsatzsteuer-ID</h4>
       <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG: DE 000000000</p>
       <p class="modal-note">Hinweis: Platzhalterangaben – bitte durch die tatsächlichen Unternehmensdaten ersetzen.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== ALLERGEN / ZUSATZSTOFF MODAL ===================== -->
+<div class="modal-overlay" id="allergen-modal">
+  <div class="modal glass-card modal-large">
+    <button class="modal-close" data-close-modal>✕</button>
+    <h3>Zusatzstoff- und Allergenkennzeichnung</h3>
+    <div class="modal-body allergen-legend">
+      <div class="allergen-col">
+        <h4>Zusatzstoffe</h4>
+        <ul>
+          <li><strong>1</strong> mit Farbstoff</li>
+          <li><strong>2</strong> Konservierungsstoff</li>
+          <li><strong>3</strong> Antioxidationsmittel</li>
+          <li><strong>4</strong> Nitrat oder Nitritpökelsalz</li>
+          <li><strong>5</strong> Geschmacksverstärker</li>
+          <li><strong>6</strong> Phosphat</li>
+          <li><strong>7</strong> Süßungsmittel(n)</li>
+          <li><strong>8</strong> geschwärzt</li>
+          <li><strong>9</strong> gewachst</li>
+          <li><strong>10</strong> geschwefelt</li>
+          <li><strong>11</strong> koffeinhaltig &gt;150 mg Koffein/Liter</li>
+          <li><strong>12</strong> chininhaltig</li>
+          <li><strong>13</strong> enthält Phenylalaninquelle</li>
+        </ul>
+      </div>
+      <div class="allergen-col">
+        <h4>Allergene</h4>
+        <ul>
+          <li><strong>A1</strong> Glutenhaltiges Getreide: Weizen</li>
+          <li><strong>A2</strong> Glutenhaltiges Getreide: Roggen</li>
+          <li><strong>A3</strong> Glutenhaltiges Getreide: Gerste</li>
+          <li><strong>A4</strong> Glutenhaltiges Getreide: Hafer</li>
+          <li><strong>A5</strong> Glutenhaltiges Getreide: Dinkel</li>
+          <li><strong>A6</strong> Glutenhaltiges Getreide: Emmer</li>
+          <li><strong>A7</strong> Glutenhaltiges Getreide: Khorasan</li>
+          <li><strong>B</strong> Krebstiere</li>
+          <li><strong>C</strong> Eier</li>
+          <li><strong>D</strong> Fisch</li>
+          <li><strong>E</strong> Erdnüsse</li>
+          <li><strong>F</strong> Soja</li>
+          <li><strong>G</strong> Milch (einschließlich Laktose)</li>
+          <li><strong>H1</strong> Schalenfrüchte: Mandeln</li>
+          <li><strong>H2</strong> Schalenfrüchte: Haselnüsse</li>
+          <li><strong>H3</strong> Schalenfrüchte: Walnüsse</li>
+          <li><strong>H4</strong> Schalenfrüchte: Kaschunüsse</li>
+          <li><strong>H5</strong> Schalenfrüchte: Pecannüsse</li>
+          <li><strong>H6</strong> Schalenfrüchte: Paranüsse</li>
+          <li><strong>H7</strong> Schalenfrüchte: Pistazien</li>
+          <li><strong>H8</strong> Schalenfrüchte: Queenslandnüsse</li>
+          <li><strong>I</strong> Sellerie</li>
+          <li><strong>J</strong> Senf</li>
+          <li><strong>K</strong> Sesam</li>
+          <li><strong>L</strong> Schwefeldioxid &amp; Sulfite &gt;10mg/kg</li>
+          <li><strong>M</strong> Lupinen</li>
+          <li><strong>O</strong> Weichtiere</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

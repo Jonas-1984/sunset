@@ -463,4 +463,9 @@ document.addEventListener('DOMContentLoaded', () => {
     openModal(impressumModal);
   });
 
+  /* ---------------- Allergen / Zusatzstoff modal ---------------- */
+  document.getElementById('allergen-info-btn').addEventListener('click', () => {
+    openModal(document.getElementById('allergen-modal'));
+  });
+
 });
