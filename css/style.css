@@ -693,6 +693,7 @@ ul{ list-style:none; }
   justify-content:center;
   gap:12px;
   text-align:center;
+  cursor:pointer;
   transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;
 }
 .drink-cat:hover{
@@ -785,6 +786,32 @@ ul{ list-style:none; }
   opacity:.7;
   margin-top:2px;
   font-style:normal;
+}
+
+.drink-menu-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-bottom:8px;
+}
+.modal-body .specialty-item-head h4{
+  color:var(--cream);
+  font-size:1.05rem;
+  margin:0;
+}
+.drink-menu-list li p{
+  color:var(--cream-dim);
+  font-size:.9rem;
+  margin-top:2px;
+}
+.drink-menu-note{
+  margin-top:14px;
+  font-size:.9rem;
+  color:var(--coral);
+}
+.drink-menu-quote{
+  margin-top:24px;
+  font-size:clamp(1.2rem, 2.2vw, 1.5rem);
 }
 
 .menu-quote{

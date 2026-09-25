@@ -468,4 +468,10 @@ document.addEventListener('DOMContentLoaded', () => {
     openModal(document.getElementById('allergen-modal'));
   });
 
+  /* ---------------- Getränke category modals ---------------- */
+  document.querySelectorAll('.drink-cat').forEach(tile => {
+    const modal = document.getElementById(tile.dataset.drinkModal);
+    if (modal) tile.addEventListener('click', () => openModal(modal));
+  });
+
 });
