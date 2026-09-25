@@ -1181,28 +1181,37 @@ ul{ list-style:none; }
   margin-top:40px;
 }
 
-.google-reviews{
-  max-width:560px;
+.social-proof-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+  max-width:920px;
   margin:32px auto 0;
+}
+.social-proof-card{
   text-align:center;
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:12px;
 }
-.google-reviews-icon{ display:inline-flex; }
-.google-reviews h3{
+.social-proof-icon{ display:inline-flex; }
+.social-proof-icon-instagram{ color:var(--gold); }
+.social-proof-card h3{
   font-family:var(--font-display);
   font-size:1.3rem;
   color:var(--cream);
   margin:0;
 }
-.google-reviews p{
+.social-proof-card p{
   color:var(--cream-dim);
   font-size:.95rem;
   margin:0;
 }
-.google-reviews .btn{ margin-top:6px; }
+.social-proof-card .btn{ margin-top:6px; }
+@media (max-width:700px){
+  .social-proof-grid{ grid-template-columns:1fr; }
+}
 
 .contact-info h3, .contact-form h3{
   font-family:var(--font-display);
