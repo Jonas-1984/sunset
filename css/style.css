@@ -193,6 +193,14 @@ ul{ list-style:none; }
   initial-value: 0deg;
 }
 
+/* Speisekarte: no spinning border, just a thin static sunset-gradient sheen */
+.menu-section .glass-card::before{
+  padding:1px;
+  background:var(--gradient-sunset);
+  animation:none;
+  opacity:.6;
+}
+
 /* ---------------------------------------------------------
    Buttons
 --------------------------------------------------------- */
