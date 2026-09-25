@@ -650,6 +650,20 @@ ul{ list-style:none; }
   color:var(--cream-dim);
   margin:-6px 0 6px;
 }
+
+.menu-quote{
+  text-align:center;
+  font-family:var(--font-script);
+  font-size:clamp(1.4rem, 2.6vw, 1.9rem);
+  font-weight:400;
+  background:var(--gradient-sunset);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  max-width:640px;
+  margin:32px auto 0;
+  line-height:1.4;
+}
 .menu-item .price{
   font-weight:700;
   background:var(--gradient-sunset);
@@ -1441,6 +1455,9 @@ ul{ list-style:none; }
 --------------------------------------------------------- */
 body :is(.menu-section, .about-section, .contact-section, .site-footer) *{
   font-family:"Ubuntu", "Segoe UI", sans-serif;
+}
+body .menu-section .menu-quote{
+  font-family:var(--font-script);
 }
 
 /* ---------------------------------------------------------
