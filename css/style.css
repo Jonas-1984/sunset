@@ -814,6 +814,31 @@ ul{ list-style:none; }
   font-size:clamp(1.2rem, 2.2vw, 1.5rem);
 }
 
+.modal-title-icon{
+  display:inline-flex;
+  width:24px;
+  height:24px;
+  color:var(--gold);
+  vertical-align:middle;
+  margin-right:10px;
+}
+.modal-title-icon svg{ width:100%; height:100%; }
+
+.drink-menu-list, .drink-menu-note{
+  font-family:"Segoe UI", sans-serif;
+}
+.drink-menu-list .specialty-item-head h4,
+.drink-menu-list .price,
+.drink-menu-list li p,
+.drink-menu-note{
+  font-family:"Segoe UI", sans-serif;
+  font-size:12px;
+}
+.drink-menu-list .specialty-item-head h4 sup{
+  font-family:"Segoe UI", sans-serif;
+  font-size:9px;
+}
+
 .menu-quote{
   text-align:center;
   font-family:var(--font-script);
