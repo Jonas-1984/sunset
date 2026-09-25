@@ -625,6 +625,8 @@ ul{ list-style:none; }
   gap:24px;
   align-items:center;
 }
+.daily-special-text{ min-width:0; }
+.daily-special-media{ min-width:0; }
 @keyframes ds-fade{
   from{ opacity:0; transform:translateY(6px); }
   to{ opacity:1; transform:translateY(0); }
@@ -697,11 +699,24 @@ ul{ list-style:none; }
   font-size:.82rem;
   margin-top:2px;
 }
+.burger-footnote-wrap{
+  overflow:hidden;
+  width:100%;
+  -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image:linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
 .burger-footnote{
-  font-size:.72rem;
-  color:var(--cream-dim);
+  display:inline-block;
+  white-space:nowrap;
+  font-size:1.15rem;
+  color:var(--cream);
   font-style:italic;
-  opacity:.85;
+  opacity:.95;
+  animation:burger-ticker 22s linear infinite;
+}
+@keyframes burger-ticker{
+  0%{ transform:translateX(100%); }
+  100%{ transform:translateX(-100%); }
 }
 .daily-special-media{
   display:flex;
