@@ -602,14 +602,14 @@ ul{ list-style:none; }
   position:relative;
   max-width:760px;
   margin:60px auto 0;
-  padding:26px;
+  padding:20px 26px;
   display:flex;
   flex-direction:column;
 }
 
 .ds-slides{
   position:relative;
-  height:480px;
+  height:404px;
 }
 
 .ds-slide{
@@ -650,23 +650,23 @@ ul{ list-style:none; }
 .ds-placeholder p{ color:var(--cream-dim); font-size:.9rem; max-width:420px; margin:0 auto; }
 .ds-rest .ds-title{ background:none; -webkit-text-fill-color:var(--cream); color:var(--cream); }
 
-.ds-eyebrow{ font-size:1.6rem; letter-spacing:.1em; margin-bottom:6px; }
+.ds-eyebrow{ font-size:1.6rem; letter-spacing:.1em; margin-bottom:2px; }
 
 .daily-special-title{
   font-family:var(--font-display);
-  font-size:clamp(1.4rem, 2.4vw, 1.8rem);
+  font-size:clamp(1.3rem, 2.2vw, 1.6rem);
   font-weight:700;
   background:var(--gradient-sunset);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
-  margin-bottom:16px;
+  margin-bottom:10px;
 }
 .burger-list{
   display:flex;
   flex-direction:column;
-  gap:14px;
-  margin-bottom:14px;
+  gap:8px;
+  margin-bottom:8px;
 }
 .burger-item-head{
   display:flex;
@@ -733,22 +733,28 @@ ul{ list-style:none; }
 .ds-dots{
   display:flex;
   justify-content:center;
-  gap:9px;
-  margin-top:22px;
+  gap:8px;
+  margin-top:16px;
 }
 .ds-dot{
-  width:9px; height:9px;
-  border-radius:50%;
-  border:none;
-  background:rgba(255,255,255,.2);
+  min-width:38px;
+  padding:6px 8px;
+  border-radius:20px;
+  border:1px solid var(--glass-border);
+  background:rgba(255,255,255,.06);
+  color:var(--cream-dim);
+  font-family:var(--font-body);
+  font-size:.78rem;
+  font-weight:600;
   cursor:pointer;
-  padding:0;
-  transition:background .25s ease, transform .25s ease;
+  transition:background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
 }
-.ds-dot:hover{ background:rgba(255,255,255,.4); }
+.ds-dot:hover{ border-color:var(--gold); color:var(--gold); }
 .ds-dot.active{
   background:var(--gradient-sunset);
-  transform:scale(1.25);
+  border-color:transparent;
+  color:var(--night);
+  transform:scale(1.06);
 }
 
 /* ---------------------------------------------------------
@@ -1304,7 +1310,7 @@ ul{ list-style:none; }
   .contact-grid{ grid-template-columns:1fr; }
   .menu-grid{ grid-template-columns:1fr; }
   .daily-special-carousel{ padding:20px; }
-  .ds-slides{ height:540px; }
+  .ds-slides{ height:464px; }
   .ds-slide-burger.active{ grid-template-columns:1fr; }
   .daily-special-media{ order:-1; }
   .daily-special-media img{ max-width:170px; }
