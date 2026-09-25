@@ -189,9 +189,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const dsSlides = document.querySelectorAll('.ds-slide');
   const dsDots = document.querySelectorAll('.ds-dot');
   if (dsSlides.length && dsDots.length) {
+    let restLottieLoaded = false;
+    const loadRestLottie = () => {
+      if (restLottieLoaded || typeof lottie === 'undefined') return;
+      const el = document.getElementById('ds-rest-lottie');
+      const dataEl = document.getElementById('lottie-sleeping-data');
+      if (!el || !dataEl) return;
+      // Embedded JSON (not fetch()'d) so this still works when the
+      // site is opened directly from disk via file:// — Chrome
+      // blocks fetch() for local files, which lottie's `path`
+      // option relies on.
+      lottie.loadAnimation({
+        container: el,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: JSON.parse(dataEl.textContent)
+      });
+      restLottieLoaded = true;
+    };
+
     const showDsSlide = (index) => {
       dsSlides.forEach(s => s.classList.toggle('active', Number(s.dataset.day) === index));
       dsDots.forEach(d => d.classList.toggle('active', Number(d.dataset.index) === index));
+      if (index === 0) loadRestLottie();
     };
     dsDots.forEach(dot => {
       dot.addEventListener('click', () => showDsSlide(Number(dot.dataset.index)));
