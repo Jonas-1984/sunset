@@ -647,7 +647,7 @@ ul{ list-style:none; }
   color:transparent;
   margin-bottom:10px;
 }
-.ds-placeholder p{ color:var(--cream-dim); font-size:1.6rem; max-width:520px; margin:0 auto; }
+.ds-placeholder p{ color:var(--cream-dim); font-size:1.1rem; max-width:520px; margin:0 auto; }
 .ds-rest .ds-title{ background:none; -webkit-text-fill-color:var(--cream); color:var(--cream); }
 .ds-rest-lottie{
   width:130px;
