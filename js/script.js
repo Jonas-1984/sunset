@@ -282,6 +282,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (form) form.addEventListener('reset', () => { selected = null; });
   }
 
+  /* ---------------- Personen stepper (custom up/down) ---------------- */
+  const guestsInput = document.getElementById('guests');
+  const guestsUp = document.getElementById('guests-up');
+  const guestsDown = document.getElementById('guests-down');
+  if (guestsInput && guestsUp && guestsDown) {
+    const step = (delta) => {
+      const min = Number(guestsInput.min) || 1;
+      const max = Number(guestsInput.max) || 99;
+      const current = Number(guestsInput.value) || min;
+      guestsInput.value = Math.min(max, Math.max(min, current + delta));
+    };
+    guestsUp.addEventListener('click', () => step(1));
+    guestsDown.addEventListener('click', () => step(-1));
+  }
+
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();

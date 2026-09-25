@@ -790,6 +790,43 @@ ul{ list-style:none; }
 }
 .form-group textarea{ resize:vertical; }
 
+/* Custom number stepper (Personen): hide the native browser
+   spin buttons, use our own transparent gold arrow buttons. */
+.stepper{ position:relative; }
+.stepper input[type="number"]{
+  padding-right:38px;
+  -moz-appearance:textfield;
+}
+.stepper input[type="number"]::-webkit-outer-spin-button,
+.stepper input[type="number"]::-webkit-inner-spin-button{
+  -webkit-appearance:none;
+  margin:0;
+}
+.stepper-btns{
+  position:absolute;
+  right:4px;
+  top:32px;
+  bottom:4px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:1px;
+}
+.stepper-btn{
+  width:26px;
+  height:17px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border:none;
+  color:var(--gold);
+  cursor:pointer;
+  transition:color .2s ease, transform .15s ease;
+}
+.stepper-btn:hover{ color:var(--coral); }
+.stepper-btn:active{ transform:scale(.85); }
+
 .form-success{
   margin-top:14px;
   color:var(--gold);
