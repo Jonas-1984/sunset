@@ -4,6 +4,60 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ---------------- Footer: live weather, date/time, weekday ---------------- */
+  const flWeatherText = document.getElementById('fl-weather-text');
+  const flWeatherIcon = document.getElementById('fl-weather-icon');
+  const flDatetime = document.getElementById('fl-datetime');
+  const flDayname = document.getElementById('fl-dayname');
+
+  if (flDatetime && flDayname) {
+    const updateClock = () => {
+      const now = new Date();
+      flDatetime.textContent = now.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' })
+        + ' · ' + now.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) + ' Uhr';
+      flDayname.textContent = now.toLocaleDateString('de-DE', { weekday: 'long' });
+    };
+    updateClock();
+    setInterval(updateClock, 30000);
+  }
+
+  if (flWeatherText && flWeatherIcon) {
+    const svgHead = 'xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+    const weatherIcons = {
+      sun: `<svg ${svgHead}><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>`,
+      cloudSun: `<svg ${svgHead}><circle cx="7" cy="7" r="2.5"/><path d="M7 1.5v1.5M2.5 7H1M11 7h-.5M3.5 3.5l1 1M10.5 3.5l-1 1"/><path d="M9.5 20H18a4 4 0 0 0 .3-8 6 6 0 0 0-11.2-2.3A4.5 4.5 0 0 0 6 18.5"/></svg>`,
+      cloud: `<svg ${svgHead}><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>`,
+      fog: `<svg ${svgHead}><path d="M3 9h13M3 13h18M6 17h14"/></svg>`,
+      rain: `<svg ${svgHead}><path d="M16.5 14H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="M8 18v3M12 18v3M16 18v3"/></svg>`,
+      snow: `<svg ${svgHead}><path d="M16.5 14H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="M8 19h.01M12 19h.01M16 19h.01"/></svg>`,
+      storm: `<svg ${svgHead}><path d="M16.5 12.5H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="M13 13l-2.5 5H13l-1.5 4"/></svg>`,
+    };
+    const weatherByCode = (code) => {
+      if (code === 0) return { icon: weatherIcons.sun, label: 'Klarer Himmel' };
+      if ([1, 2].includes(code)) return { icon: weatherIcons.cloudSun, label: 'Leicht bewölkt' };
+      if (code === 3) return { icon: weatherIcons.cloud, label: 'Bewölkt' };
+      if ([45, 48].includes(code)) return { icon: weatherIcons.fog, label: 'Nebel' };
+      if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return { icon: weatherIcons.rain, label: 'Regen' };
+      if ([71, 73, 75, 77, 85, 86].includes(code)) return { icon: weatherIcons.snow, label: 'Schnee' };
+      if ([95, 96, 99].includes(code)) return { icon: weatherIcons.storm, label: 'Gewitter' };
+      return { icon: weatherIcons.cloud, label: 'Bewölkt' };
+    };
+
+    // Mühldorf am Inn
+    const lat = 48.2464, lon = 12.5250;
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
+      .then((r) => r.json())
+      .then((data) => {
+        const cw = data.current_weather;
+        const w = weatherByCode(cw.weathercode);
+        flWeatherIcon.innerHTML = w.icon;
+        flWeatherText.textContent = `${Math.round(cw.temperature)}°C · ${w.label}`;
+      })
+      .catch(() => {
+        flWeatherText.textContent = 'Wetter aktuell nicht verfügbar';
+      });
+  }
+
   /* ---------------- Sticky / shrinking header ---------------- */
   const header = document.getElementById('site-header');
   const onScroll = () => {

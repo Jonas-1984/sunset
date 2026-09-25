@@ -333,7 +333,26 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <p>Bayerische Gastlichkeit in warmem Sonnenuntergangslicht – seit über 15 Jahren.</p>
+      <ul class="footer-live" id="footer-live">
+        <li class="fl-row" id="fl-weather">
+          <span class="fl-icon" id="fl-weather-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </span>
+          <span id="fl-weather-text">Wetter wird geladen…</span>
+        </li>
+        <li class="fl-row">
+          <span class="fl-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </span>
+          <span id="fl-datetime"></span>
+        </li>
+        <li class="fl-row">
+          <span class="fl-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </span>
+          <span id="fl-dayname"></span>
+        </li>
+      </ul>
     </div>
     <div class="footer-col">
       <h4>Navigation</h4>
