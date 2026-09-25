@@ -576,20 +576,23 @@ ul{ list-style:none; }
   grid-template-columns:1fr 1fr;
   gap:28px;
 }
-.allergen-col h4{ margin:0 0 10px; }
+.allergen-col h4{ margin:0 0 10px; font-size:1.05rem; }
 .allergen-col ul{
   display:flex;
   flex-direction:column;
-  gap:7px;
+  gap:9px;
 }
 .allergen-col li{
-  font-size:.85rem;
+  font-size:1.05rem;
   color:var(--cream-dim);
   line-height:1.4;
 }
 .allergen-col li strong{
   color:var(--gold);
   margin-right:6px;
+}
+#allergen-modal h3{
+  font-family:"Ubuntu", "Segoe UI", sans-serif;
 }
 @media (max-width:640px){
   .allergen-legend{ grid-template-columns:1fr; }
