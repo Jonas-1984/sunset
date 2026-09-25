@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunset Restaurant &amp; Bar – Bayerische Küche mit Genuss</title>
+<meta name="description" content="Sunset Restaurant & Bar – Bayerische Gastlichkeit trifft auf den Zauber der Abenddämmerung. Speisekarte, Reservierung und mehr.">
+<link rel="icon" href="image/Logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&family=Great+Vibes&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Single, non-repeating page background photo. Runs down from the
+     top for as long as its natural height reaches, then fades into
+     the page's colour gradient. Implemented as a CSS background
+     (not an <img>) so it can never be mistaken for a trackable /
+     blockable image by browser extensions. -->
+<div class="page-bg" aria-hidden="true"></div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <div class="header-right">
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+          <li><a href="#speisekarte" class="nav-link" data-section="speisekarte">Speisekarte</a></li>
+          <li><a href="#ueber-uns" class="nav-link" data-section="ueber-uns">Über uns</a></li>
+          <li><a href="#kontakt" class="nav-link" data-section="kontakt">Kontakt</a></li>
+        </ul>
+        <a href="#kontakt" class="btn btn-glow nav-cta">Tisch reservieren</a>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HOME / HERO ===================== -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-glow"></div>
+  </div>
+
+  <div class="hero-content">
+    <p class="eyebrow eyebrow-hero fade-up">Willkommen in Bayern</p>
+    <h1 class="hero-title-card fade-up delay-1">
+      <img src="image/Logo.png" alt="Sunset" class="hero-title-logo">
+      <span class="hero-title-sub">Restaurant &amp; Bar</span>
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      Bayerische Gastlichkeit, ehrliche Küche und der schönste Sonnenuntergang der Stadt – bei uns wird jeder Abend zum Fest.
+    </p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="#speisekarte" class="btn btn-glow">Speisekarte entdecken</a>
+      <a href="#kontakt" class="btn btn-outline">Tisch reservieren</a>
+    </div>
+  </div>
+
+  <a href="#speisekarte" class="scroll-cue" aria-label="Nach unten scrollen">
+    <span></span>
+  </a>
+</section>
+
+<!-- ===================== SPEISEKARTE ===================== -->
+<section class="menu-section" id="speisekarte">
+  <div class="section-divider"></div>
+  <div class="container">
+    <p class="eyebrow center reveal">Bayerisch &amp; Bodenständig</p>
+    <h2 class="section-title center reveal">Unsere Speisekarte</h2>
+    <p class="section-lead center reveal">
+      Regionale Zutaten, traditionelle Rezepte und die Wärme eines bayerischen Sonnenuntergangs auf jedem Teller.
+    </p>
+
+    <div class="menu-tabs reveal" role="tablist">
+      <button class="menu-tab active" data-target="vorspeisen">Vorspeisen</button>
+      <button class="menu-tab" data-target="hauptspeisen">Hauptspeisen</button>
+      <button class="menu-tab" data-target="spezialitaeten">Spezialitäten</button>
+      <button class="menu-tab" data-target="desserts">Desserts</button>
+      <button class="menu-tab" data-target="getraenke">Getränke</button>
+    </div>
+
+    <div class="menu-panels">
+
+      <div class="menu-panel active" id="vorspeisen">
+        <div class="menu-grid">
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Obatzda</h3><span class="price">7,50 €</span></div>
+            <p>Cremige Käsespezialität mit Paprika, Zwiebeln und frischer Brezn.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Leberkäs-Häppchen</h3><span class="price">6,90 €</span></div>
+            <p>Hausgemachter Leberkäse mit süßem Senf und Radi.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Brezn-Trio</h3><span class="price">5,50 €</span></div>
+            <p>Drei frisch gebackene Brezn mit Butter und Schmalz.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Wurstsalat</h3><span class="price">8,90 €</span></div>
+            <p>Feiner Schnittwurstsalat mit Zwiebeln, Essig und Öl.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="hauptspeisen">
+        <div class="menu-grid">
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Schweinsbraten</h3><span class="price">17,90 €</span></div>
+            <p>Knuspriger Braten mit Dunkelbiersoße, Kartoffelknödel und Krautsalat.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Schnitzel Wiener Art</h3><span class="price">16,50 €</span></div>
+            <p>Goldbraun paniert, mit Preiselbeeren und Kartoffelsalat.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Kässpatzn</h3><span class="price">14,50 €</span></div>
+            <p>Handgeschabte Spätzle mit Bergkäse und gerösteten Zwiebeln.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Sonnenuntergang-Teller</h3><span class="price">21,90 €</span></div>
+            <p>Unsere Signature-Platte: Braten, Wurst, Knödel &amp; Kraut für Genießer.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="spezialitaeten">
+        <div class="menu-grid">
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Weißwurst-Frühstück</h3><span class="price">9,90 €</span></div>
+            <p>Zwei Weißwürste, süßer Senf und frische Brezn (bis 12 Uhr).</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Schweinshaxe</h3><span class="price">19,90 €</span></div>
+            <p>Knusprig gebraten, mit Knödel und dunkler Biersoße.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Krautkrapfen</h3><span class="price">13,90 €</span></div>
+            <p>Bayerische Teigtaschen gefüllt mit Sauerkraut, dazu Kartoffelpüree.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Allgäuer Käsespätzle</h3><span class="price">14,90 €</span></div>
+            <p>Für Vegetarier: würzige Spätzle, viel Käse, karamellisierte Zwiebeln.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="desserts">
+        <div class="menu-grid">
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Kaiserschmarrn</h3><span class="price">8,90 €</span></div>
+            <p>Mit Apfelkompott, Rosinen und Puderzucker – für zwei Personen.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Dampfnudel</h3><span class="price">7,50 €</span></div>
+            <p>Warme Hefeknödel mit Vanillesoße.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Rote Grütze</h3><span class="price">6,50 €</span></div>
+            <p>Mit Vanilleeis und frischer Minze.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Sunset-Torte</h3><span class="price">7,90 €</span></div>
+            <p>Hausgemachte Schichttorte in warmen Karamell- und Beerentönen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="getraenke">
+        <div class="menu-grid">
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Helles vom Fass</h3><span class="price">4,20 €</span></div>
+            <p>0,5 l – regionale Brauereien aus Bayern.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Radler</h3><span class="price">4,00 €</span></div>
+            <p>Hell &amp; Zitronenlimonade, spritzig-frisch.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Sunset Aperol Spritz</h3><span class="price">7,50 €</span></div>
+            <p>Unser Signature-Drink zur goldenen Stunde.</p>
+          </div>
+          <div class="menu-item glass-card reveal">
+            <div class="menu-item-head"><h3>Apfelschorle</h3><span class="price">3,50 €</span></div>
+            <p>Regionaler Apfelsaft, fein prickelnd.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="menu-note reveal">Alle Preise inkl. gesetzl. MwSt. Änderungen &amp; Irrtümer vorbehalten.</p>
+  </div>
+</section>
+
+<!-- ===================== ÜBER UNS ===================== -->
+<section class="about-section" id="ueber-uns">
+  <div class="container about-grid">
+    <div class="about-media reveal">
+      <div class="about-media-frame">
+        <img src="image/ueberuns.jpg" alt="Unser Team vor dem Sunset Restaurant &amp; Bar in Mühldorf" loading="lazy">
+      </div>
+      <div class="about-badge">
+        <span class="about-badge-num">15+</span>
+        <span class="about-badge-text">Jahre bayerische<br>Gastlichkeit</span>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <p class="eyebrow reveal">Unsere Geschichte</p>
+      <h2 class="section-title reveal">Über uns</h2>
+      <p class="reveal">
+        Mitten im Herzen Bayerns, dort wo der Himmel abends in warmen Gold- und Rosétönen leuchtet,
+        liegt das <strong>Sunset Restaurant &amp; Bar</strong>. Seit über 15 Jahren verbinden wir traditionelle
+        bayerische Küche mit der entspannten, herzlichen Atmosphäre eines endlosen Sommerabends.
+      </p>
+      <p class="reveal">
+        Ob deftiger Schweinsbraten, knusprige Schweinshaxe oder ein kühles Radler auf unserer Terrasse –
+        bei uns trifft Handwerk auf Herzlichkeit. Unsere Zutaten stammen von Bauern und Brauereien aus der Region,
+        unsere Rezepte von unseren Großmüttern.
+      </p>
+      <div class="about-features">
+        <div class="feature reveal">
+          <span class="feature-icon">🍺</span>
+          <div><h4>Regionale Braukunst</h4><p>Frisch gezapft von bayerischen Brauereien.</p></div>
+        </div>
+        <div class="feature reveal">
+          <span class="feature-icon">🥨</span>
+          <div><h4>Hausgemacht</h4><p>Brezn, Knödel &amp; Soßen täglich frisch zubereitet.</p></div>
+        </div>
+        <div class="feature reveal">
+          <span class="feature-icon">🌇</span>
+          <div><h4>Terrasse mit Aussicht</h4><p>Genießen Sie den Sonnenuntergang bei uns live.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KONTAKT ===================== -->
+<section class="contact-section" id="kontakt">
+  <div class="section-divider"></div>
+  <div class="container">
+    <p class="eyebrow center reveal">Wir freuen uns auf Sie</p>
+    <h2 class="section-title center reveal">Kontakt &amp; Reservierung</h2>
+
+    <div class="contact-grid">
+      <div class="contact-info glass-card reveal">
+        <h3>Sunset Restaurant &amp; Bar</h3>
+        <ul class="contact-list">
+          <li><span class="contact-icon">📍</span> Friedrich-Ludwig-Jahn-Str. 11, 84453 Mühldorf a. Inn</li>
+          <li><span class="contact-icon">📞</span> <a href="tel:+491747741071">0174 - 774 1071</a></li>
+          <li><span class="contact-icon">✉️</span> <a href="mailto:info@sunset-restaurant.de">info@sunset-restaurant.de</a></li>
+        </ul>
+        <h4>Öffnungszeiten</h4>
+        <ul class="hours-list">
+          <li><span>Montag</span><span>Ruhetag</span></li>
+          <li><span>Dienstag</span><span>11:00 – 22:00</span></li>
+          <li><span>Mittwoch</span><span>16:00 – 22:00</span></li>
+          <li><span>Donnerstag</span><span>16:00 – 22:00</span></li>
+          <li><span>Freitag</span><span>11:00 – 23:00</span></li>
+          <li><span>Samstag</span><span>11:00 – 23:00</span></li>
+          <li><span>Sonntag</span><span>11:00 – 22:00</span></li>
+        </ul>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook" class="social-icon">f</a>
+          <a href="#" aria-label="Instagram" class="social-icon">◎</a>
+          <a href="#" aria-label="WhatsApp" class="social-icon">☏</a>
+        </div>
+      </div>
+
+      <form class="contact-form glass-card reveal" id="contact-form" novalidate>
+        <h3>Reservierung anfragen</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group datepicker">
+            <label for="date">Datum</label>
+            <input type="text" id="date" name="date" placeholder="TT.MM.JJJJ" inputmode="none" required autocomplete="off">
+            <div class="dp-popup" id="dp-popup" hidden>
+              <div class="dp-head">
+                <button type="button" class="dp-nav" id="dp-prev" aria-label="Vorheriger Monat">‹</button>
+                <span class="dp-title" id="dp-title"></span>
+                <button type="button" class="dp-nav" id="dp-next" aria-label="Nächster Monat">›</button>
+              </div>
+              <div class="dp-weekdays">
+                <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
+              </div>
+              <div class="dp-days" id="dp-days"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="guests">Personen</label>
+            <input type="number" id="guests" name="guests" min="1" max="20" value="2" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Nachricht (optional)</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-glow full-width">Anfrage senden</button>
+        <p class="form-success" id="form-success" hidden>Vielen Dank! Ihre Anfrage wurde übermittelt – wir melden uns in Kürze.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <p>Bayerische Gastlichkeit in warmem Sonnenuntergangslicht – seit über 15 Jahren.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#speisekarte">Speisekarte</a></li>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li>Friedrich-Ludwig-Jahn-Str. 11, 84453 Mühldorf a. Inn</li>
+        <li><a href="tel:+491747741071">0174 - 774 1071</a></li>
+        <li><a href="mailto:info@sunset-restaurant.de">info@sunset-restaurant.de</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <ul>
+        <li><a href="#" id="link-datenschutz">Datenschutzerklärung</a></li>
+        <li><a href="#" id="link-impressum">Impressum</a></li>
+        <li><a href="#" id="link-cookie-settings">Cookie-Einstellungen</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="rauten-strip" aria-hidden="true"></div>
+    <p>© <span id="year"></span> Sunset Restaurant &amp; Bar · Alle Rechte vorbehalten</p>
+  </div>
+</footer>
+
+<!-- ===================== COOKIE BANNER ===================== -->
+<div class="cookie-banner glass-card" id="cookie-banner" hidden>
+  <div class="cookie-text">
+    <h4>🍪 Wir verwenden Cookies</h4>
+    <p>
+      Wir nutzen Cookies und ähnliche Technologien, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten,
+      Inhalte zu personalisieren und unseren Traffic zu analysieren. Einige sind technisch notwendig, andere helfen uns,
+      diese Website und Ihr Erlebnis zu verbessern. Sie können Ihre Auswahl jederzeit unter „Cookie-Einstellungen" im Footer ändern.
+      Weitere Informationen finden Sie in unserer <a href="#" id="cookie-link-datenschutz">Datenschutzerklärung</a>.
+    </p>
+  </div>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost" id="cookie-settings-btn">Einstellungen</button>
+    <button class="btn btn-outline" id="cookie-reject-btn">Nur notwendige</button>
+    <button class="btn btn-glow" id="cookie-accept-btn">Alle akzeptieren</button>
+  </div>
+</div>
+
+<!-- ===================== COOKIE SETTINGS MODAL ===================== -->
+<div class="modal-overlay" id="cookie-modal">
+  <div class="modal glass-card">
+    <button class="modal-close" data-close-modal>✕</button>
+    <h3>Cookie-Einstellungen</h3>
+    <p class="modal-lead">Wählen Sie, welche Kategorien von Cookies Sie zulassen möchten.</p>
+
+    <div class="cookie-option">
+      <div>
+        <h4>Notwendige Cookies</h4>
+        <p>Erforderlich für die Grundfunktionen der Website. Können nicht deaktiviert werden.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" checked disabled>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="cookie-option">
+      <div>
+        <h4>Statistik &amp; Analyse</h4>
+        <p>Helfen uns zu verstehen, wie Besucher mit der Website interagieren.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="cookie-stats">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="cookie-option">
+      <div>
+        <h4>Marketing &amp; Add-ons</h4>
+        <p>Ermöglichen personalisierte Inhalte, Angebote und Drittanbieter-Add-ons.</p>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="cookie-marketing">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn btn-outline" id="cookie-reject-all-modal">Nur notwendige</button>
+      <button class="btn btn-glow" id="cookie-save-btn">Auswahl speichern</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DATENSCHUTZ MODAL ===================== -->
+<div class="modal-overlay" id="datenschutz-modal">
+  <div class="modal glass-card modal-large">
+    <button class="modal-close" data-close-modal>✕</button>
+    <h3>Datenschutzerklärung</h3>
+    <div class="modal-body">
+      <h4>1. Verantwortlicher</h4>
+      <p>Sunset Restaurant &amp; Bar, Friedrich-Ludwig-Jahn-Str. 11, 84453 Mühldorf a. Inn, Telefon: 0174 - 774 1071, E-Mail: info@sunset-restaurant.de</p>
+
+      <h4>2. Erhebung und Verarbeitung personenbezogener Daten</h4>
+      <p>Wir erheben personenbezogene Daten nur, soweit dies zur Bereitstellung einer funktionsfähigen Website
+      sowie unserer Inhalte und Leistungen erforderlich ist, z. B. beim Ausfüllen unseres Reservierungsformulars
+      (Name, E-Mail-Adresse, Datum, Personenanzahl, optionale Nachricht).</p>
+
+      <h4>3. Cookies</h4>
+      <p>Unsere Website verwendet Cookies. Notwendige Cookies sind für den Betrieb der Seite erforderlich.
+      Optionale Cookies (Statistik, Marketing/Add-ons) werden nur mit Ihrer ausdrücklichen Einwilligung gesetzt,
+      die Sie jederzeit über die Cookie-Einstellungen im Footer widerrufen oder anpassen können.</p>
+
+      <h4>4. Ihre Rechte</h4>
+      <p>Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung
+      Ihrer gespeicherten personenbezogenen Daten sowie ein Widerspruchsrecht gegen die Verarbeitung und ein
+      Recht auf Datenübertragbarkeit.</p>
+
+      <h4>5. Speicherdauer</h4>
+      <p>Wir speichern personenbezogene Daten nur so lange, wie dies für den jeweiligen Zweck erforderlich ist
+      oder gesetzliche Aufbewahrungspflichten bestehen.</p>
+
+      <p class="modal-note">Hinweis: Dies ist ein Platzhaltertext zu Demonstrationszwecken und ersetzt keine
+      rechtsverbindliche, individuell geprüfte Datenschutzerklärung. Bitte durch einen Fachanwalt prüfen lassen,
+      bevor die Website live geht.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== IMPRESSUM MODAL ===================== -->
+<div class="modal-overlay" id="impressum-modal">
+  <div class="modal glass-card modal-large">
+    <button class="modal-close" data-close-modal>✕</button>
+    <h3>Impressum</h3>
+    <div class="modal-body">
+      <h4>Angaben gemäß § 5 TMG</h4>
+      <p>
+        Sunset Restaurant &amp; Bar<br>
+        Inhaber: Mustername Musterfrau<br>
+        Friedrich-Ludwig-Jahn-Str. 11<br>
+        84453 Mühldorf a. Inn<br>
+        Deutschland
+      </p>
+      <h4>Kontakt</h4>
+      <p>Telefon: 0174 - 774 1071<br>E-Mail: info@sunset-restaurant.de</p>
+      <h4>Umsatzsteuer-ID</h4>
+      <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG: DE 000000000</p>
+      <p class="modal-note">Hinweis: Platzhalterangaben – bitte durch die tatsächlichen Unternehmensdaten ersetzen.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
