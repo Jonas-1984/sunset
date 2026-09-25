@@ -845,7 +845,7 @@ ul{ list-style:none; }
 .footer-grid{
   display:flex;
   flex-wrap:wrap;
-  justify-content:flex-start;
+  justify-content:center;
   gap:2cm;
   padding-bottom:50px;
 }
@@ -854,7 +854,7 @@ ul{ list-style:none; }
 .footer-brand p{ color:var(--cream-dim); font-size:.9rem; max-width:280px; }
 
 .footer-map{
-  width:260px;
+  width:380px;
   max-width:100%;
   flex-shrink:0;
   aspect-ratio:16/10;
