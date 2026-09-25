@@ -603,11 +603,20 @@ ul{ list-style:none; }
   max-width:760px;
   margin:60px auto 0;
   padding:26px;
-  min-height:280px;
+  display:flex;
+  flex-direction:column;
+}
+
+.ds-slides{
+  position:relative;
+  height:480px;
 }
 
 .ds-slide{
   display:none;
+  height:100%;
+  align-items:center;
+  overflow:hidden;
   animation:ds-fade .4s ease;
 }
 .ds-slide.active{ display:grid; }
@@ -1280,6 +1289,7 @@ ul{ list-style:none; }
   .contact-grid{ grid-template-columns:1fr; }
   .menu-grid{ grid-template-columns:1fr; }
   .daily-special-carousel{ padding:20px; }
+  .ds-slides{ height:540px; }
   .ds-slide-burger.active{ grid-template-columns:1fr; }
   .daily-special-media{ order:-1; }
   .daily-special-media img{ max-width:170px; }
