@@ -814,6 +814,13 @@ ul{ list-style:none; }
   margin-top:24px;
   font-size:clamp(1.4rem, 2.4vw, 1.7rem);
 }
+.modal-body .drink-menu-quote-sub{
+  margin-top:16px;
+  font-size:clamp(1.1rem, 2vw, 1.3rem);
+}
+.modal-body .drink-menu-quote + .drink-menu-quote{
+  margin-top:6px;
+}
 
 .modal-overlay[id^="drink-modal-"] h3{
   font-family:"Segoe UI", sans-serif;
