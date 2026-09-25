@@ -665,6 +665,10 @@ ul{ list-style:none; }
   margin:-6px 0 6px;
 }
 
+#spezialitaeten > .menu-panel-note{
+  margin-top:1cm;
+}
+
 .specialty-card{
   display:flex;
   flex-direction:column;
