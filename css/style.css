@@ -575,6 +575,33 @@ ul{ list-style:none; }
   font-size:1.25rem;
   color:var(--cream);
 }
+.menu-item-head h3 sup{
+  font-size:.6rem;
+  color:var(--cream-dim);
+  font-weight:200;
+  margin-left:2px;
+}
+.diet-tag{
+  display:inline-block;
+  margin-left:4px;
+  padding:2px 9px;
+  font-size:.65rem;
+  font-weight:600;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  border-radius:20px;
+  border:1px solid var(--glass-border);
+  color:var(--gold);
+  vertical-align:middle;
+}
+.menu-panel-note{
+  grid-column:1 / -1;
+  text-align:center;
+  font-size:.85rem;
+  font-style:italic;
+  color:var(--cream-dim);
+  margin:-6px 0 6px;
+}
 .menu-item .price{
   font-weight:700;
   background:var(--gradient-sunset);
