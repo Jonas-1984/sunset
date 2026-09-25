@@ -195,37 +195,91 @@
 
     <p class="menu-note reveal">Alle Preise inkl. gesetzl. MwSt. Änderungen &amp; Irrtümer vorbehalten.</p>
 
-    <div class="daily-special glass-card reveal">
-      <div class="daily-special-text">
-        <p class="eyebrow">Jeden Mittwoch</p>
-        <h3 class="daily-special-title">Happy Burger Day</h3>
-        <ul class="burger-list">
-          <li>
-            <div class="burger-item-head">
-              <h4>American Burger <sup>A1,G,C,J</sup></h4>
-              <span class="price">16,50 €</span>
-            </div>
-            <p>Saftiges Burger Patty, Bacon, Cheddarkäse, Salat, Tomate und Zwiebeln.</p>
-          </li>
-          <li>
-            <div class="burger-item-head">
-              <h4>Cheeseburger <sup>A1,G,C,J</sup></h4>
-              <span class="price">14,50 €</span>
-            </div>
-            <p>Saftiges Burger Patty, Cheddarkäse und Zwiebeln.</p>
-          </li>
-          <li>
-            <div class="burger-item-head">
-              <h4>Linsenburger <sup>A1,C,G,J</sup></h4>
-              <span class="price">15,50 €</span>
-            </div>
-            <p>Saftiger Linsenbratling, Cheddarkäse, Salat, Tomate und Zwiebeln.</p>
-          </li>
-        </ul>
-        <p class="burger-footnote">Alle unsere Burger werden mit selbstgemachten Pommes, hausgemachter Burgersoße und wahlweise mit Jalapeños serviert.</p>
+    <div class="daily-special-carousel glass-card reveal" id="daily-special-carousel">
+      <div class="ds-slide" data-day="0">
+        <div class="ds-placeholder ds-rest">
+          <h3 class="ds-title">Ruhetag</h3>
+          <p>Am Montag machen wir Pause – wir freuen uns, Sie ab Dienstag wieder bei uns verwöhnen zu dürfen.</p>
+        </div>
       </div>
-      <div class="daily-special-media">
-        <img src="image/burger-day.jpg" alt="American Burger mit Pommes im Sunset Restaurant &amp; Bar" loading="lazy">
+
+      <div class="ds-slide" data-day="1">
+        <div class="ds-placeholder">
+          <h3 class="ds-title">Reguläre Speisekarte</h3>
+          <p>Heute gibt es kein Tagesangebot – stöbern Sie einfach in unserer Speisekarte oben.</p>
+        </div>
+      </div>
+
+      <div class="ds-slide ds-slide-burger" data-day="2">
+        <div class="daily-special-text">
+          <p class="eyebrow ds-eyebrow">Jeden Mittwoch</p>
+          <h3 class="daily-special-title">Happy Burger Day</h3>
+          <ul class="burger-list">
+            <li>
+              <div class="burger-item-head">
+                <h4>American Burger <sup>A1,G,C,J</sup></h4>
+                <span class="price">16,50 €</span>
+              </div>
+              <p>Saftiges Burger Patty, Bacon, Cheddarkäse, Salat, Tomate und Zwiebeln.</p>
+            </li>
+            <li>
+              <div class="burger-item-head">
+                <h4>Cheeseburger <sup>A1,G,C,J</sup></h4>
+                <span class="price">14,50 €</span>
+              </div>
+              <p>Saftiges Burger Patty, Cheddarkäse und Zwiebeln.</p>
+            </li>
+            <li>
+              <div class="burger-item-head">
+                <h4>Linsenburger <sup>A1,C,G,J</sup></h4>
+                <span class="price">15,50 €</span>
+              </div>
+              <p>Saftiger Linsenbratling, Cheddarkäse, Salat, Tomate und Zwiebeln.</p>
+            </li>
+          </ul>
+          <p class="burger-footnote">Alle unsere Burger werden mit selbstgemachten Pommes, hausgemachter Burgersoße und wahlweise mit Jalapeños serviert.</p>
+        </div>
+        <div class="daily-special-media">
+          <img src="image/burger.png" alt="American Burger mit Pommes im Sunset Restaurant &amp; Bar" loading="lazy">
+        </div>
+      </div>
+
+      <div class="ds-slide" data-day="3">
+        <div class="ds-placeholder">
+          <h3 class="ds-title">Reguläre Speisekarte</h3>
+          <p>Heute gibt es kein Tagesangebot – stöbern Sie einfach in unserer Speisekarte oben.</p>
+        </div>
+      </div>
+
+      <div class="ds-slide" data-day="4">
+        <div class="ds-placeholder">
+          <h3 class="ds-title">Reguläre Speisekarte</h3>
+          <p>Heute gibt es kein Tagesangebot – stöbern Sie einfach in unserer Speisekarte oben.</p>
+        </div>
+      </div>
+
+      <div class="ds-slide" data-day="5">
+        <div class="ds-placeholder">
+          <h3 class="ds-title">Reguläre Speisekarte</h3>
+          <p>Heute gibt es kein Tagesangebot – stöbern Sie einfach in unserer Speisekarte oben.</p>
+        </div>
+      </div>
+
+      <div class="ds-slide" data-day="6">
+        <div class="ds-placeholder">
+          <h3 class="ds-title">Reguläre Speisekarte</h3>
+          <p>Heute gibt es kein Tagesangebot – stöbern Sie einfach in unserer Speisekarte oben.</p>
+        </div>
+      </div>
+
+      <div class="ds-dots" id="ds-dots">
+        <button class="ds-dot" data-index="0" aria-label="Montag"></button>
+        <button class="ds-dot" data-index="1" aria-label="Dienstag"></button>
+        <button class="ds-dot" data-index="2" aria-label="Mittwoch"></button>
+        <button class="ds-dot" data-index="3" aria-label="Donnerstag"></button>
+        <button class="ds-dot" data-index="4" aria-label="Freitag"></button>
+        <button class="ds-dot" data-index="5" aria-label="Samstag"></button>
+        <button class="ds-dot" data-index="6" aria-label="Sonntag"></button>
       </div>
     </div>
   </div>

@@ -185,6 +185,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ---------------- Daily special carousel (Mo–So) ---------------- */
+  const dsSlides = document.querySelectorAll('.ds-slide');
+  const dsDots = document.querySelectorAll('.ds-dot');
+  if (dsSlides.length && dsDots.length) {
+    const showDsSlide = (index) => {
+      dsSlides.forEach(s => s.classList.toggle('active', Number(s.dataset.day) === index));
+      dsDots.forEach(d => d.classList.toggle('active', Number(d.dataset.index) === index));
+    };
+    dsDots.forEach(dot => {
+      dot.addEventListener('click', () => showDsSlide(Number(dot.dataset.index)));
+    });
+    // JS getDay(): 0=Sonntag..6=Samstag → slides are Mo=0..So=6
+    const jsDay = new Date().getDay();
+    const todayIndex = (jsDay + 6) % 7;
+    showDsSlide(todayIndex);
+  }
+
   /* ---------------- Contact form (client-side only) ---------------- */
   const form = document.getElementById('contact-form');
   const successMsg = document.getElementById('form-success');

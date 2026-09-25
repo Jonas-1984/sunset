@@ -594,31 +594,68 @@ ul{ list-style:none; }
 }
 
 /* ---------------------------------------------------------
-   Daily special: "Happy Burger Day"
+   Daily special carousel — 7 slides (Mo–So), dot navigation,
+   defaults to today's weekday but the user can browse all of
+   them. Smaller/more compact card than the old single version.
 --------------------------------------------------------- */
-.daily-special{
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:36px;
-  align-items:center;
-  margin-top:60px;
-  padding:36px;
+.daily-special-carousel{
+  position:relative;
+  max-width:760px;
+  margin:60px auto 0;
+  padding:26px;
+  min-height:280px;
 }
-.daily-special-title{
+
+.ds-slide{
+  display:none;
+  animation:ds-fade .4s ease;
+}
+.ds-slide.active{ display:grid; }
+.ds-slide-burger.active{
+  grid-template-columns:1.3fr 1fr;
+  gap:24px;
+  align-items:center;
+}
+@keyframes ds-fade{
+  from{ opacity:0; transform:translateY(6px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+.ds-placeholder{
+  grid-column:1 / -1;
+  text-align:center;
+  padding:24px 12px;
+}
+.ds-title{
   font-family:var(--font-display);
-  font-size:clamp(1.7rem, 3vw, 2.3rem);
+  font-size:1.6rem;
   font-weight:700;
   background:var(--gradient-sunset);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
-  margin-bottom:22px;
+  margin-bottom:10px;
+}
+.ds-placeholder p{ color:var(--cream-dim); font-size:.9rem; max-width:420px; margin:0 auto; }
+.ds-rest .ds-title{ background:none; -webkit-text-fill-color:var(--cream); color:var(--cream); }
+
+.ds-eyebrow{ font-size:1.6rem; letter-spacing:.1em; margin-bottom:6px; }
+
+.daily-special-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.4rem, 2.4vw, 1.8rem);
+  font-weight:700;
+  background:var(--gradient-sunset);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  margin-bottom:16px;
 }
 .burger-list{
   display:flex;
   flex-direction:column;
-  gap:18px;
-  margin-bottom:20px;
+  gap:14px;
+  margin-bottom:14px;
 }
 .burger-item-head{
   display:flex;
@@ -628,17 +665,18 @@ ul{ list-style:none; }
 }
 .burger-item-head h4{
   font-family:var(--font-display);
-  font-size:1.1rem;
+  font-size:.98rem;
   color:var(--cream);
 }
 .burger-item-head h4 sup{
-  font-size:.65rem;
+  font-size:.6rem;
   color:var(--cream-dim);
   font-weight:400;
   margin-left:2px;
 }
 .burger-item-head .price{
   font-weight:700;
+  font-size:.92rem;
   white-space:nowrap;
   background:var(--gradient-sunset);
   -webkit-background-clip:text;
@@ -647,25 +685,46 @@ ul{ list-style:none; }
 }
 .burger-list li p{
   color:var(--cream-dim);
-  font-size:.9rem;
-  margin-top:4px;
+  font-size:.82rem;
+  margin-top:2px;
 }
 .burger-footnote{
-  font-size:.8rem;
+  font-size:.72rem;
   color:var(--cream-dim);
   font-style:italic;
   opacity:.85;
 }
 .daily-special-media{
-  border-radius:var(--radius-sm);
-  overflow:hidden;
-  aspect-ratio:4/5;
-  box-shadow:var(--shadow-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .daily-special-media img{
   width:100%;
-  height:100%;
-  object-fit:cover;
+  max-width:220px;
+  height:auto;
+  filter:drop-shadow(0 10px 24px rgba(0,0,0,.45));
+}
+
+.ds-dots{
+  display:flex;
+  justify-content:center;
+  gap:9px;
+  margin-top:22px;
+}
+.ds-dot{
+  width:9px; height:9px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,.2);
+  cursor:pointer;
+  padding:0;
+  transition:background .25s ease, transform .25s ease;
+}
+.ds-dot:hover{ background:rgba(255,255,255,.4); }
+.ds-dot.active{
+  background:var(--gradient-sunset);
+  transform:scale(1.25);
 }
 
 /* ---------------------------------------------------------
@@ -1220,8 +1279,10 @@ ul{ list-style:none; }
   .about-grid{ grid-template-columns:1fr; }
   .contact-grid{ grid-template-columns:1fr; }
   .menu-grid{ grid-template-columns:1fr; }
-  .daily-special{ grid-template-columns:1fr; padding:24px; }
-  .daily-special-media{ order:-1; aspect-ratio:16/10; }
+  .daily-special-carousel{ padding:20px; }
+  .ds-slide-burger.active{ grid-template-columns:1fr; }
+  .daily-special-media{ order:-1; }
+  .daily-special-media img{ max-width:170px; }
 }
 
 @media (max-width: 1100px){
