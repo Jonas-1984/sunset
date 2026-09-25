@@ -613,6 +613,7 @@ ul{ list-style:none; }
   font-family:"Ubuntu", "Segoe UI", sans-serif;
 }
 #allergen-modal .modal::before{ display:none; }
+.modal-overlay[id^="drink-modal-"] .modal::before{ display:none; }
 @media (max-width:640px){
   .allergen-legend{ grid-template-columns:1fr; }
 }
