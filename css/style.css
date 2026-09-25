@@ -1209,6 +1209,17 @@ ul{ list-style:none; }
 }
 .social-proof-card .btn{ margin-top:6px; }
 
+.social-proof-card-instagram{ position:relative; overflow:hidden; }
+.social-proof-card-instagram::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("../image/instagram-bg.jpg") center/cover no-repeat;
+  opacity:.5;
+  z-index:-1;
+  border-radius:inherit;
+}
+
 @media (max-width:700px){
   .social-proof-grid{ grid-template-columns:1fr; }
 }
