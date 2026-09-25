@@ -609,7 +609,7 @@ ul{ list-style:none; }
 
 .ds-slides{
   position:relative;
-  height:600px;
+  height:400px;
 }
 
 .ds-slide{
@@ -639,7 +639,7 @@ ul{ list-style:none; }
 }
 .ds-title{
   font-family:var(--font-display);
-  font-size:1.6rem;
+  font-size:1.75rem;
   font-weight:700;
   background:var(--gradient-sunset);
   -webkit-background-clip:text;
@@ -647,7 +647,7 @@ ul{ list-style:none; }
   color:transparent;
   margin-bottom:10px;
 }
-.ds-placeholder p{ color:var(--cream-dim); font-size:.9rem; max-width:420px; margin:0 auto; }
+.ds-placeholder p{ color:var(--cream-dim); font-size:1.6rem; max-width:520px; margin:0 auto; }
 .ds-rest .ds-title{ background:none; -webkit-text-fill-color:var(--cream); color:var(--cream); }
 .ds-rest-lottie{
   width:130px;
@@ -681,18 +681,18 @@ ul{ list-style:none; }
 }
 .burger-item-head h4{
   font-family:var(--font-display);
-  font-size:1.75rem;
+  font-size:1.2rem;
   color:var(--cream);
 }
 .burger-item-head h4 sup{
   font-size:.6rem;
   color:var(--cream-dim);
-  font-weight:400;
+  font-weight:200;
   margin-left:2px;
 }
 .burger-item-head .price{
   font-weight:700;
-  font-size:.92rem;
+  font-size:1.1rem;
   white-space:nowrap;
   background:var(--gradient-sunset);
   -webkit-background-clip:text;
@@ -701,7 +701,7 @@ ul{ list-style:none; }
 }
 .burger-list li p{
   color:var(--cream-dim);
-  font-size:1.6rem;
+  font-size:1.1rem;
   margin-top:2px;
 }
 .burger-footnote-wrap{
