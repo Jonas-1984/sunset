@@ -594,6 +594,81 @@ ul{ list-style:none; }
 }
 
 /* ---------------------------------------------------------
+   Daily special: "Happy Burger Day"
+--------------------------------------------------------- */
+.daily-special{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:36px;
+  align-items:center;
+  margin-top:60px;
+  padding:36px;
+}
+.daily-special-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.7rem, 3vw, 2.3rem);
+  font-weight:700;
+  background:var(--gradient-sunset);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  margin-bottom:22px;
+}
+.burger-list{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  margin-bottom:20px;
+}
+.burger-item-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:14px;
+}
+.burger-item-head h4{
+  font-family:var(--font-display);
+  font-size:1.1rem;
+  color:var(--cream);
+}
+.burger-item-head h4 sup{
+  font-size:.65rem;
+  color:var(--cream-dim);
+  font-weight:400;
+  margin-left:2px;
+}
+.burger-item-head .price{
+  font-weight:700;
+  white-space:nowrap;
+  background:var(--gradient-sunset);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.burger-list li p{
+  color:var(--cream-dim);
+  font-size:.9rem;
+  margin-top:4px;
+}
+.burger-footnote{
+  font-size:.8rem;
+  color:var(--cream-dim);
+  font-style:italic;
+  opacity:.85;
+}
+.daily-special-media{
+  border-radius:var(--radius-sm);
+  overflow:hidden;
+  aspect-ratio:4/5;
+  box-shadow:var(--shadow-soft);
+}
+.daily-special-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* ---------------------------------------------------------
    About section
 --------------------------------------------------------- */
 .about-section{
