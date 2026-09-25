@@ -600,7 +600,6 @@ ul{ list-style:none; }
 --------------------------------------------------------- */
 .daily-special-carousel{
   position:relative;
-  max-width:920px;
   margin:60px auto 0;
   padding:20px 26px;
   display:flex;
