@@ -827,6 +827,22 @@ ul{ list-style:none; }
   color:var(--gold);
 }
 
+.footer-holidays-label{
+  margin-top:18px;
+  margin-bottom:8px;
+  font-size:.75rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--gold);
+}
+.footer-holidays{ display:flex; flex-direction:column; gap:6px; }
+.footer-holidays li{
+  font-size:.85rem;
+  color:var(--cream-dim);
+}
+.footer-holidays li strong{ color:var(--cream); font-weight:600; }
+
 .footer-col h4{
   font-size:.85rem;
   text-transform:uppercase;
