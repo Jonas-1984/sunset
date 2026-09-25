@@ -722,7 +722,12 @@ ul{ list-style:none; }
   color:var(--cream-dim);
   font-size:.95rem;
 }
-.contact-icon{ font-size:1.1rem; }
+.contact-icon{
+  font-size:1.1rem;
+  display:inline-flex;
+  flex-shrink:0;
+  color:var(--gold);
+}
 
 .hours-list li{
   display:flex;
