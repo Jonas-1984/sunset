@@ -830,6 +830,15 @@ ul{ list-style:none; }
   font-size:.8rem;
   color:rgba(255,255,255,.45);
 }
+.footer-bottom .credit{
+  margin-top:6px;
+  font-size:.75rem;
+}
+.footer-bottom .credit a{
+  color:var(--gold);
+  transition:color .2s ease;
+}
+.footer-bottom .credit a:hover{ color:var(--coral); }
 .rauten-strip{
   height:8px;
   max-width:220px;
