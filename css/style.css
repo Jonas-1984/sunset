@@ -807,7 +807,7 @@ ul{ list-style:none; }
 }
 .footer-grid{
   display:grid;
-  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  grid-template-columns:1.6fr 1fr;
   gap:40px;
   padding-bottom:50px;
 }
@@ -841,7 +841,8 @@ ul{ list-style:none; }
   font-size:.85rem;
   color:var(--cream-dim);
 }
-.footer-holidays li strong{ color:var(--cream); font-weight:600; }
+.footer-holidays li .fh-date{ color:var(--gold); }
+.footer-holidays li .fh-name{ color:#fff; font-weight:400; }
 
 .footer-col h4{
   font-size:.85rem;

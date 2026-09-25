@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     holidaysEl.innerHTML = upcoming.map((h) => {
       const dateStr = `${pad(h.date.getDate())}.${pad(h.date.getMonth() + 1)}.${h.date.getFullYear()}`;
-      return `<li>${dateStr} (${weekdayShort(h.date)}): <strong>${h.name}</strong></li>`;
+      return `<li><span class="fh-date">${dateStr} (${weekdayShort(h.date)})</span>: <span class="fh-name">${h.name}</span></li>`;
     }).join('');
   }
 
