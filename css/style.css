@@ -1260,6 +1260,7 @@ body :is(.menu-section, .about-section, .contact-section, .site-footer) *{
 .contact-info::before,
 .contact-form::before{
   animation:none;
+  padding:1px;
   background:linear-gradient(135deg, var(--gold) 0%, var(--coral) 40%, transparent 72%);
   opacity:.85;
 }
