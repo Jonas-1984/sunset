@@ -1208,6 +1208,19 @@ ul{ list-style:none; }
   margin:0;
 }
 .social-proof-card .btn{ margin-top:6px; }
+
+.instagram-feed{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  width:100%;
+  padding-bottom:4px;
+  scroll-snap-type:x mandatory;
+}
+.instagram-feed .instagram-media{
+  flex:0 0 auto;
+  scroll-snap-align:start;
+}
 @media (max-width:700px){
   .social-proof-grid{ grid-template-columns:1fr; }
 }
