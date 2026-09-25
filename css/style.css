@@ -35,7 +35,17 @@
 
 *{ margin:0; padding:0; box-sizing:border-box; }
 
-html{ scroll-behavior:smooth; }
+html{
+  scroll-behavior:smooth;
+  scrollbar-width:thin;
+  scrollbar-color:var(--gold) transparent;
+}
+::-webkit-scrollbar{ width:8px; height:8px; }
+::-webkit-scrollbar-track{ background:transparent; }
+::-webkit-scrollbar-thumb{
+  background:var(--gradient-sunset);
+  border-radius:10px;
+}
 
 body{
   position:relative;
@@ -603,16 +613,6 @@ ul{ list-style:none; }
   font-family:"Ubuntu", "Segoe UI", sans-serif;
 }
 #allergen-modal .modal::before{ display:none; }
-#allergen-modal .modal{
-  scrollbar-width:thin;
-  scrollbar-color:var(--gold) transparent;
-}
-#allergen-modal .modal::-webkit-scrollbar{ width:8px; }
-#allergen-modal .modal::-webkit-scrollbar-track{ background:transparent; }
-#allergen-modal .modal::-webkit-scrollbar-thumb{
-  background:var(--gradient-sunset);
-  border-radius:10px;
-}
 @media (max-width:640px){
   .allergen-legend{ grid-template-columns:1fr; }
 }
