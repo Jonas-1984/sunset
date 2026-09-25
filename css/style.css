@@ -551,6 +551,8 @@ ul{ list-style:none; }
   display:grid;
   grid-template-columns:repeat(2, 1fr);
   gap:24px;
+  max-width:920px;
+  margin:0 auto;
 }
 
 .menu-item{
@@ -600,6 +602,7 @@ ul{ list-style:none; }
 --------------------------------------------------------- */
 .daily-special-carousel{
   position:relative;
+  max-width:920px;
   margin:60px auto 0;
   padding:20px 26px;
   display:flex;
