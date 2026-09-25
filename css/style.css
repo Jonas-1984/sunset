@@ -1053,7 +1053,7 @@ ul{ list-style:none; }
    on = sunset gradient with a sun. */
 .privacy-consent{
   display:flex;
-  align-items:flex-start;
+  align-items:center;
   gap:12px;
   margin:4px 0 20px;
 }
@@ -1067,7 +1067,6 @@ ul{ list-style:none; }
   width:var(--width-of-switch);
   height:var(--height-of-switch);
   flex-shrink:0;
-  margin-top:2px;
 }
 .consent-switch input{
   opacity:0;
