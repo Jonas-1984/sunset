@@ -1048,58 +1048,61 @@ ul{ list-style:none; }
 .switch input:checked + .slider::before{ transform:translateX(20px); }
 .switch input:disabled + .slider{ opacity:.6; cursor:not-allowed; }
 
-/* Sunset consent toggle: off = night sky, on = sunset gradient,
-   a small sun sits in the thumb either way. */
+/* Sunset/night consent switch (Uiverse.io by satyamchaudharydev,
+   recoloured to the site palette): off = night sky with a moon,
+   on = sunset gradient with a sun. */
 .privacy-consent{
   display:flex;
   align-items:flex-start;
   gap:12px;
   margin:4px 0 20px;
 }
-.sunset-toggle{
+.consent-switch{
   position:relative;
-  width:52px;
-  height:28px;
+  display:inline-block;
+  --width-of-switch:3.5em;
+  --height-of-switch:2em;
+  --size-of-icon:1.35em;
+  --slider-offset:0.3em;
+  width:var(--width-of-switch);
+  height:var(--height-of-switch);
   flex-shrink:0;
   margin-top:2px;
 }
-.sunset-toggle input{
-  position:absolute;
+.consent-switch input{
   opacity:0;
-  width:100%; height:100%;
-  margin:0;
+  width:0;
+  height:0;
+}
+.consent-slider{
+  position:absolute;
   cursor:pointer;
-}
-.st-track{
-  position:absolute;
   inset:0;
-  border-radius:20px;
-  background:linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%);
+  background-color:var(--night);
   border:1px solid rgba(255,255,255,.15);
-  transition:background .4s ease;
-  pointer-events:none;
+  border-radius:30px;
+  transition:.4s;
 }
-.st-thumb{
+.consent-slider::before{
   position:absolute;
-  left:3px; top:2px;
-  width:22px; height:22px;
+  content:"";
+  height:var(--size-of-icon);
+  width:var(--size-of-icon);
   border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--cream-dim);
-  color:rgba(20,15,35,.6);
-  box-shadow:0 2px 6px rgba(0,0,0,.35);
-  transition:transform .35s cubic-bezier(.4,0,.2,1), background .35s ease, color .35s ease;
-  pointer-events:none;
+  left:var(--slider-offset);
+  top:50%;
+  transform:translateY(-50%);
+  background:var(--night-3);
+  box-shadow:inset -3px -2px 5px -2px rgba(255,211,110,.6), inset -10px -4px 0 0 var(--night-2);
+  transition:.4s;
 }
-.sunset-toggle input:checked ~ .st-track{ background:var(--gradient-sunset); }
-.sunset-toggle input:checked ~ .st-thumb{
-  transform:translateX(24px);
-  background:var(--cream);
-  color:var(--coral);
+.consent-switch input:checked + .consent-slider{ background-color:var(--cream-dim); }
+.consent-switch input:checked + .consent-slider::before{
+  left:calc(100% - (var(--size-of-icon) + var(--slider-offset)));
+  background:linear-gradient(40deg, var(--coral), var(--gold) 70%);
+  box-shadow:none;
 }
-.sunset-toggle input:focus-visible ~ .st-track{ box-shadow:0 0 0 3px rgba(255,179,71,.35); }
+.consent-switch input:focus-visible + .consent-slider{ box-shadow:0 0 0 3px rgba(255,179,71,.35); }
 
 .privacy-consent-text{
   font-size:.85rem;
