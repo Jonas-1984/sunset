@@ -624,7 +624,7 @@ ul{ list-style:none; }
   color:var(--cream);
 }
 .menu-item-head h3 sup{
-  font-size:.6rem;
+  font-size:1.2rem;
   color:var(--cream-dim);
   font-weight:200;
   margin-left:2px;
@@ -776,7 +776,7 @@ ul{ list-style:none; }
   color:var(--cream);
 }
 .burger-item-head h4 sup{
-  font-size:.6rem;
+  font-size:1.2rem;
   color:var(--cream-dim);
   font-weight:200;
   margin-left:2px;
