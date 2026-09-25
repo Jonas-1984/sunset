@@ -412,9 +412,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const datenschutzModal = document.getElementById('datenschutz-modal');
   const impressumModal = document.getElementById('impressum-modal');
 
-  ['link-datenschutz', 'cookie-link-datenschutz'].forEach(id => {
+  ['link-datenschutz', 'cookie-link-datenschutz', 'link-datenschutz-form'].forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener('click', (e) => { e.preventDefault(); openModal(datenschutzModal); });
+    if (el) el.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // don't toggle the consent switch when just reading the policy
+      openModal(datenschutzModal);
+    });
   });
   document.getElementById('link-impressum').addEventListener('click', (e) => {
     e.preventDefault();
