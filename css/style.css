@@ -665,6 +665,78 @@ ul{ list-style:none; }
   margin:-6px 0 6px;
 }
 
+.specialty-card{
+  display:flex;
+  flex-direction:column;
+}
+.specialty-title{
+  font-family:var(--font-display);
+  font-size:1.4rem;
+  font-weight:700;
+  background:var(--gradient-sunset);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  margin-bottom:16px;
+}
+.specialty-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  flex:1;
+}
+.specialty-item-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:14px;
+}
+.specialty-item-head h4{
+  font-family:var(--font-display);
+  font-size:1.05rem;
+  font-weight:600;
+  color:var(--cream);
+}
+.specialty-item-head h4 sup{
+  font-size:1.2rem;
+  color:var(--cream-dim);
+  font-weight:200;
+  margin-left:2px;
+}
+.specialty-item-head .price{
+  font-weight:700;
+  font-size:1.05rem;
+  white-space:nowrap;
+  background:var(--gradient-sunset);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.specialty-list li p{
+  color:var(--cream-dim);
+  font-size:1rem;
+  margin-top:2px;
+}
+.specialty-subhead{
+  color:var(--gold);
+  font-weight:600;
+  font-size:1rem;
+  margin-top:2px;
+}
+.specialty-note{
+  margin-top:18px;
+  font-size:.85rem;
+  color:var(--cream-dim);
+  font-style:italic;
+}
+.specialty-note-small{
+  display:block;
+  font-size:.75rem;
+  opacity:.7;
+  margin-top:2px;
+  font-style:normal;
+}
+
 .menu-quote{
   text-align:center;
   font-family:var(--font-script);
