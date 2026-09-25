@@ -854,13 +854,13 @@ ul{ list-style:none; }
 .footer-brand p{ color:var(--cream-dim); font-size:.9rem; max-width:280px; }
 
 .footer-map{
-  width:100%;
-  max-width:340px;
+  width:260px;
+  max-width:100%;
+  flex-shrink:0;
   aspect-ratio:16/10;
   border-radius:var(--radius-sm);
   overflow:hidden;
   border:1px solid var(--glass-border);
-  margin-bottom:22px;
   filter:saturate(.85) brightness(.9);
 }
 .footer-map iframe{
