@@ -474,4 +474,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modal) tile.addEventListener('click', () => openModal(modal));
   });
 
+  /* ---------------- About: mobile tap-to-reveal ---------------- */
+  const aboutTapTarget = document.getElementById('about-tap-target');
+  const aboutGrid = document.getElementById('about-grid');
+  if (aboutTapTarget && aboutGrid) {
+    aboutTapTarget.addEventListener('click', () => {
+      aboutGrid.classList.add('revealed');
+    });
+  }
+
 });
