@@ -145,11 +145,13 @@ document.addEventListener('DOMContentLoaded', () => {
     mainNav.classList.add('open');
     navToggle.classList.add('open');
     navToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('nav-open');
   };
   const closeMobileNav = () => {
     mainNav.classList.remove('open');
     navToggle.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
     window.setTimeout(() => {
       if (!mainNav.classList.contains('open')) mainNav.style.display = '';
     }, 450);

@@ -1829,8 +1829,10 @@ ul{ list-style:none; }
     justify-content:center;
     gap:36px;
     padding:0 40px;
-    transform:translateX(100%);
+    transform:translate3d(100%, 0, 0);
     transition:transform .4s ease;
+    will-change:transform;
+    isolation:isolate;
   }
   .main-nav::before{
     content:"";
@@ -1840,7 +1842,15 @@ ul{ list-style:none; }
     background:var(--gradient-sunset);
     opacity:.9;
   }
-  .main-nav.open{ transform:translateX(0); }
+  .main-nav.open{ transform:translate3d(0, 0, 0); }
+  /* Pause the page's perpetual border/badge animations while the nav is
+     open -- a constantly-repainting backdrop is a known trigger for mobile
+     browsers to stop updating backdrop-filter blur behind a fixed element. */
+  body.nav-open .glass-card::before,
+  body.nav-open .about-badge,
+  body.nav-open .footer-map::before{
+    animation-play-state:paused;
+  }
   .main-nav ul{ flex-direction:column; gap:24px; }
   .nav-toggle{ display:flex; }
   .nav-cta{ margin-top:8px; }
