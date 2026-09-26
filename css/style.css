@@ -1714,8 +1714,9 @@ ul{ list-style:none; }
     top:0; right:0;
     height:100vh;
     width:min(78vw, 320px);
-    background:var(--night-2);
-    backdrop-filter:blur(20px);
+    background:rgba(24,11,39,.7);
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
     flex-direction:column;
     align-items:flex-start;
     justify-content:center;
@@ -1724,6 +1725,14 @@ ul{ list-style:none; }
     transform:translateX(100%);
     transition:transform .4s ease;
     box-shadow:-10px 0 40px rgba(0,0,0,.4);
+  }
+  .main-nav::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; bottom:0;
+    width:2px;
+    background:var(--gradient-sunset);
+    opacity:.85;
   }
   .main-nav.open{ transform:translateX(0); }
   .main-nav ul{ flex-direction:column; gap:24px; }
