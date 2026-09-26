@@ -134,17 +134,32 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------------- Mobile nav toggle ---------------- */
   const navToggle = document.getElementById('nav-toggle');
   const mainNav = document.getElementById('main-nav');
+  const openMobileNav = () => {
+    // On mobile the nav sits translated off-screen but stays in the DOM,
+    // which makes Chrome cache its backdrop-filter blur against whatever
+    // scroll position it was last painted at instead of the current one.
+    // Fully removing it from rendering (display:none) and bringing it back
+    // forces a fresh blur sample at the current scroll position.
+    mainNav.style.display = 'flex';
+    void mainNav.offsetHeight; // force reflow before animating
+    mainNav.classList.add('open');
+    navToggle.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+  };
+  const closeMobileNav = () => {
+    mainNav.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    window.setTimeout(() => {
+      if (!mainNav.classList.contains('open')) mainNav.style.display = '';
+    }, 450);
+  };
   navToggle.addEventListener('click', () => {
-    const isOpen = mainNav.classList.toggle('open');
-    navToggle.classList.toggle('open', isOpen);
-    navToggle.setAttribute('aria-expanded', String(isOpen));
+    if (mainNav.classList.contains('open')) closeMobileNav();
+    else openMobileNav();
   });
   mainNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mainNav.classList.remove('open');
-      navToggle.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', () => closeMobileNav());
   });
 
   /* ---------------- Active nav link on scroll ---------------- */
