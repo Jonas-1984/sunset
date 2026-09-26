@@ -477,9 +477,16 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------------- About: mobile tap-to-reveal ---------------- */
   const aboutTapTarget = document.getElementById('about-tap-target');
   const aboutGrid = document.getElementById('about-grid');
+  const aboutText = document.querySelector('.about-text');
   if (aboutTapTarget && aboutGrid) {
     aboutTapTarget.addEventListener('click', () => {
       aboutGrid.classList.add('revealed');
+    });
+  }
+  if (aboutText && aboutGrid) {
+    aboutText.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      aboutGrid.classList.remove('revealed');
     });
   }
 
