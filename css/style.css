@@ -1702,7 +1702,7 @@ ul{ list-style:none; }
   .contact-grid{ grid-template-columns:1fr; }
   .menu-grid{ grid-template-columns:1fr; }
   .daily-special-carousel{ padding:20px; }
-  .ds-slides{ height:900px; }
+  .ds-slides{ height:650px; }
   .ds-slide-burger.active{ grid-template-columns:1fr; }
   .daily-special-media{ order:-1; }
   .daily-special-media img{ max-width:170px; }
