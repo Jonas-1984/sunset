@@ -1819,11 +1819,11 @@ ul{ list-style:none; }
     height:100vh;
     width:min(78vw, 320px);
     background:rgba(85, 69, 115, 0.51);
-    border-radius:16px;
+    border-radius:0;
     box-shadow:0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter:blur(9.8px);
     -webkit-backdrop-filter:blur(9.8px);
-    border:1px solid rgba(85, 69, 115, 0.45);
+    border:none;
     flex-direction:column;
     align-items:flex-start;
     justify-content:center;
@@ -1831,6 +1831,14 @@ ul{ list-style:none; }
     padding:0 40px;
     transform:translateX(100%);
     transition:transform .4s ease;
+  }
+  .main-nav::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; bottom:0;
+    width:2px;
+    background:var(--gradient-sunset);
+    opacity:.9;
   }
   .main-nav.open{ transform:translateX(0); }
   .main-nav ul{ flex-direction:column; gap:24px; }
