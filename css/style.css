@@ -686,6 +686,7 @@ ul{ list-style:none; }
   margin:0 auto;
 }
 .drink-cat{
+  min-width:0;
   aspect-ratio:1 / 1;
   padding:16px;
   display:flex;
@@ -713,6 +714,8 @@ ul{ list-style:none; }
   font-size:1.15rem;
   font-weight:400;
   color:var(--cream);
+  overflow-wrap:break-word;
+  max-width:100%;
 }
 @media (max-width:640px){
   .drink-categories{ grid-template-columns:repeat(2, 1fr); }
