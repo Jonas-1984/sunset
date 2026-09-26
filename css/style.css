@@ -1818,7 +1818,7 @@ ul{ list-style:none; }
     top:0; right:0;
     height:100vh;
     width:min(78vw, 320px);
-    background:rgba(24,11,39,.7);
+    background:rgba(15,8,26,.9);
     backdrop-filter:blur(24px);
     -webkit-backdrop-filter:blur(24px);
     flex-direction:column;
