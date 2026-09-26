@@ -1756,6 +1756,9 @@ ul{ list-style:none; }
    Responsive
 --------------------------------------------------------- */
 @media (max-width: 900px){
+  .menu-section{ padding-bottom:0; }
+  .about-section{ padding:2cm 0; }
+  .contact-section{ padding-top:0; }
   .about-grid{ grid-template-columns:1fr; position:relative; padding-bottom:4cm; }
   .about-tap-hint{ display:block; }
   .about-text{
@@ -1783,24 +1786,21 @@ ul{ list-style:none; }
   .about-grid.revealed .about-tap-hint{ opacity:0; pointer-events:none; }
 
   .about-cta-row .btn{
-    background:#d9906c;
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
-    border:none;
-    color:#3a2013;
-    box-shadow:6px 6px 14px rgba(0,0,0,.4), -6px -6px 14px rgba(255,200,170,.3);
-  }
-  .about-cta-row .btn:active{
-    box-shadow:inset 4px 4px 10px rgba(0,0,0,.35), inset -4px -4px 10px rgba(255,200,170,.25);
+    background:linear-gradient(120deg, rgba(255,211,110,.4), rgba(255,61,104,.4));
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(255,179,71,.5);
+    color:var(--cream);
+    box-shadow:none;
   }
   .about-cta-row .btn::after{ display:none; }
   .about-call-btn{
-    background:#d9906c;
-    color:#3a2013;
-    box-shadow:6px 6px 14px rgba(0,0,0,.4), -6px -6px 14px rgba(255,200,170,.3);
-  }
-  .about-call-btn:active{
-    box-shadow:inset 4px 4px 10px rgba(0,0,0,.35), inset -4px -4px 10px rgba(255,200,170,.25);
+    background:linear-gradient(120deg, rgba(255,211,110,.4), rgba(255,61,104,.4));
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(255,179,71,.5);
+    color:var(--cream);
+    box-shadow:none;
   }
   .contact-grid{ grid-template-columns:1fr; }
   .menu-grid{ grid-template-columns:1fr; }
