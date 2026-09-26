@@ -709,6 +709,7 @@ ul{ list-style:none; }
 }
 .drink-cat-icon svg{ width:100%; height:100%; stroke-width:1.2; }
 .icon-scale-82{ transform:scale(.82); transform-origin:center; }
+.icon-scale-75{ transform:scale(.75); transform-origin:center; }
 .drink-cat-label{
   font-size:1.15rem;
   font-weight:400;
