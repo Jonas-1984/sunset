@@ -569,6 +569,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
 
+    const galleryPrevBtn = document.getElementById('gallery-prev');
+    const galleryNextBtn = document.getElementById('gallery-next');
+    if (galleryPrevBtn) galleryPrevBtn.addEventListener('click', () => {
+      showGallerySlide(galleryIndex - 1);
+      pauseAndScheduleResume();
+    });
+    if (galleryNextBtn) galleryNextBtn.addEventListener('click', () => {
+      showGallerySlide(galleryIndex + 1);
+      pauseAndScheduleResume();
+    });
+
     showGallerySlide(0);
     startGalleryAuto();
   }
