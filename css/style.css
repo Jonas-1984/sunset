@@ -1220,11 +1220,14 @@ ul{ list-style:none; }
   align-items:center;
 }
 
+.about-mobile-label{ display:none; }
+
 .about-media{
   position:relative;
 }
 .about-media-frame{
   position:relative;
+  isolation:isolate;
   aspect-ratio:4/5;
   border-radius:var(--radius);
   overflow:hidden;
@@ -1317,6 +1320,7 @@ ul{ list-style:none; }
 
 .about-badge{
   position:absolute;
+  z-index:2;
   bottom:-24px;
   right:-24px;
   background:var(--gradient-sunset);
@@ -1899,6 +1903,18 @@ ul{ list-style:none; }
   .about-section{ padding:2cm 0; }
   .contact-section{ padding-top:0; }
   .about-grid{ grid-template-columns:1fr; position:relative; padding-bottom:4cm; }
+  .about-mobile-label{
+    display:block;
+    font-family:var(--font-script);
+    font-size:2.2rem;
+    font-weight:400;
+    text-align:left;
+    margin:0 0 10px;
+    background:var(--gradient-sunset);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
   .about-tap-hint{ display:block; }
   .about-text{
     position:absolute;
@@ -2030,6 +2046,9 @@ body :is(.menu-section, .about-section, .contact-section, .site-footer) *{
   font-family:"Ubuntu", "Segoe UI", sans-serif;
 }
 body .menu-section .menu-quote{
+  font-family:var(--font-script);
+}
+body .about-section .about-mobile-label{
   font-family:var(--font-script);
 }
 
