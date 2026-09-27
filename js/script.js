@@ -565,7 +565,8 @@ document.addEventListener('DOMContentLoaded', () => {
     galleryCarousel.addEventListener('touchend', (e) => {
       const dx = e.changedTouches[0].clientX - galleryTouchX;
       if (Math.abs(dx) > 40) {
-        showGallerySlide(galleryIndex + (dx < 0 ? 1 : -1));
+        // Drag right -> next slide, drag left -> previous slide.
+        showGallerySlide(galleryIndex + (dx > 0 ? 1 : -1));
       }
     }, { passive: true });
 

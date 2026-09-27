@@ -1202,7 +1202,6 @@ ul{ list-style:none; }
   .gallery-slide{ grid-template-columns:1fr; }
   .gallery-media{ order:-1; }
   .gallery-media img{ max-width:170px; }
-  .gallery-slide.prev, .gallery-slide.next{ display:none; }
   .gallery-nav{ display:none; }
 }
 
