@@ -1902,7 +1902,8 @@ ul{ list-style:none; }
   .menu-section{ padding-bottom:0; }
   .about-section{ padding:2cm 0 3cm; }
   .contact-section{ padding-top:0; }
-  .about-grid{ grid-template-columns:1fr; gap:0; position:relative; padding-bottom:4cm; }
+  .about-grid{ grid-template-columns:1fr; gap:0; position:relative; padding-bottom:0; transition:padding-bottom .4s ease; }
+  .about-grid.revealed{ padding-bottom:4cm; }
   .about-mobile-label{
     display:block;
     font-family:var(--font-display);
