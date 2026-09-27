@@ -491,6 +491,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modal) tile.addEventListener('click', () => openModal(modal));
   });
 
+  /* ---------------- About: photo slideshow (auto-blur-crossfade) ---------------- */
+  const aboutSlideImgs = document.querySelectorAll('.about-slide-img');
+  if (aboutSlideImgs.length > 1) {
+    let aboutSlideIndex = 0;
+    setInterval(() => {
+      aboutSlideIndex = (aboutSlideIndex + 1) % aboutSlideImgs.length;
+      aboutSlideImgs.forEach((img, i) => img.classList.toggle('active', i === aboutSlideIndex));
+    }, 6000);
+  }
+
   /* ---------------- About: mobile tap-to-reveal ---------------- */
   const aboutTapTarget = document.getElementById('about-tap-target');
   const aboutGrid = document.getElementById('about-grid');
