@@ -1650,9 +1650,14 @@ ul{ list-style:none; }
   letter-spacing:.05em;
   color:var(--gold);
 }
+.footer-logos-row{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  margin-top:20px;
+}
 .footer-club-logo{
   display:inline-flex;
-  margin-top:20px;
   opacity:.85;
   transition:opacity .25s ease, transform .25s ease;
 }
@@ -2034,7 +2039,7 @@ ul{ list-style:none; }
   .footer-holidays{ grid-column:1; grid-row:4; }
   .footer-col{ display:contents; }
   .footer-col-links{ grid-column:2; grid-row:2; justify-self:end; text-align:left; }
-  .footer-club-logo{ grid-column:1 / 3; grid-row:5; justify-self:start; margin-top:16px; }
+  .footer-logos-row{ grid-column:1 / 3; grid-row:5; justify-self:start; margin-top:16px; }
   .footer-grid .footer-brand, .footer-grid .footer-col-links{ max-width:none; }
   .cookie-banner{ flex-direction:column; align-items:flex-start; left:12px; right:12px; bottom:12px; }
 }
