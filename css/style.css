@@ -2045,9 +2045,6 @@ body :is(.menu-section, .about-section, .contact-section, .site-footer) *{
 body .menu-section .menu-quote{
   font-family:var(--font-script);
 }
-body .about-section .about-mobile-label{
-  font-family:var(--font-display);
-}
 
 /* ---------------------------------------------------------
    Custom date picker (TT.MM.JJJJ) — dark 60% blur popup
