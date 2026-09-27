@@ -507,4 +507,70 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------------- Specialties gallery: coverflow carousel ---------------- */
+  const galleryCarousel = document.getElementById('gallery-carousel');
+  const gallerySlides = document.querySelectorAll('.gallery-slide');
+  if (galleryCarousel && gallerySlides.length) {
+    const n = gallerySlides.length;
+    let galleryIndex = 0;
+    let galleryAutoTimer = null;
+    let galleryResumeTimer = null;
+
+    const loadGalleryImage = (i) => {
+      const img = gallerySlides[i].querySelector('img[data-src]');
+      if (img) { img.src = img.dataset.src; img.removeAttribute('data-src'); }
+    };
+
+    const showGallerySlide = (i) => {
+      galleryIndex = ((i % n) + n) % n;
+      gallerySlides.forEach((slide, idx) => {
+        slide.classList.remove('active', 'prev', 'next');
+        if (idx === galleryIndex) slide.classList.add('active');
+        else if (idx === (galleryIndex - 1 + n) % n) slide.classList.add('prev');
+        else if (idx === (galleryIndex + 1) % n) slide.classList.add('next');
+      });
+      loadGalleryImage(galleryIndex);
+      loadGalleryImage((galleryIndex - 1 + n) % n);
+      loadGalleryImage((galleryIndex + 1) % n);
+    };
+
+    const stopGalleryAuto = () => {
+      if (galleryAutoTimer) clearInterval(galleryAutoTimer);
+      galleryAutoTimer = null;
+    };
+    const startGalleryAuto = () => {
+      stopGalleryAuto();
+      galleryAutoTimer = setInterval(() => showGallerySlide(galleryIndex + 1), 6000);
+    };
+    const pauseAndScheduleResume = () => {
+      stopGalleryAuto();
+      if (galleryResumeTimer) clearTimeout(galleryResumeTimer);
+      galleryResumeTimer = setTimeout(startGalleryAuto, 10000);
+    };
+
+    galleryCarousel.addEventListener('mouseenter', pauseAndScheduleResume);
+    galleryCarousel.addEventListener('click', (e) => {
+      const slide = e.target.closest('.gallery-slide');
+      if (slide && (slide.classList.contains('prev') || slide.classList.contains('next'))) {
+        showGallerySlide(Number(slide.dataset.index));
+      }
+      pauseAndScheduleResume();
+    });
+
+    let galleryTouchX = 0;
+    galleryCarousel.addEventListener('touchstart', (e) => {
+      galleryTouchX = e.touches[0].clientX;
+      pauseAndScheduleResume();
+    }, { passive: true });
+    galleryCarousel.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - galleryTouchX;
+      if (Math.abs(dx) > 40) {
+        showGallerySlide(galleryIndex + (dx < 0 ? 1 : -1));
+      }
+    }, { passive: true });
+
+    showGallerySlide(0);
+    startGalleryAuto();
+  }
+
 });

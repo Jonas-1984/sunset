@@ -1079,6 +1079,106 @@ ul{ list-style:none; }
 }
 
 /* ---------------------------------------------------------
+   Specialties gallery — coverflow-style carousel below the
+   daily-special card. Auto-advances every 6s, pauses on
+   hover/click/touch, resumes after 10s of no interaction.
+--------------------------------------------------------- */
+.gallery-eyebrow{ margin-top:60px; margin-bottom:20px; }
+
+.gallery-carousel{
+  position:relative;
+  max-width:920px;
+  margin:0 auto;
+  padding:20px 26px;
+}
+.gallery-track{
+  position:relative;
+  height:380px;
+}
+.gallery-slide{
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:24px;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(0) scale(.8);
+  filter:blur(10px);
+  transition:opacity .6s ease, transform .6s ease, filter .6s ease;
+  z-index:1;
+}
+.gallery-slide.prev{
+  opacity:.4;
+  pointer-events:auto;
+  cursor:pointer;
+  transform:translateX(-6%) scale(.86);
+  filter:blur(6px);
+  z-index:2;
+}
+.gallery-slide.next{
+  opacity:.4;
+  pointer-events:auto;
+  cursor:pointer;
+  transform:translateX(6%) scale(.86);
+  filter:blur(6px);
+  z-index:2;
+}
+.gallery-slide.active{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateX(0) scale(1);
+  filter:blur(0);
+  z-index:3;
+}
+.gallery-text{ min-width:0; }
+.gallery-media{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.gallery-media img{
+  width:100%;
+  max-width:240px;
+  height:auto;
+  filter:drop-shadow(0 10px 24px rgba(0,0,0,.45));
+}
+.gallery-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.3rem, 2.2vw, 1.6rem);
+  font-weight:700;
+  background:var(--gradient-sunset);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  margin-bottom:10px;
+}
+.gallery-ingredients{
+  color:var(--cream-dim);
+  font-size:1.1rem;
+  margin-bottom:10px;
+}
+.gallery-price{
+  font-weight:700;
+  font-size:1.15rem;
+  background:var(--gradient-sunset);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+@media (max-width:900px){
+  .gallery-carousel{ padding:20px; }
+  .gallery-track{ height:560px; }
+  .gallery-slide{ grid-template-columns:1fr; }
+  .gallery-media{ order:-1; }
+  .gallery-media img{ max-width:170px; }
+  .gallery-slide.prev, .gallery-slide.next{ display:none; }
+}
+
+/* ---------------------------------------------------------
    About section
 --------------------------------------------------------- */
 .about-section{
