@@ -1900,7 +1900,7 @@ ul{ list-style:none; }
 --------------------------------------------------------- */
 @media (max-width: 900px){
   .menu-section{ padding-bottom:0; }
-  .about-section{ padding:2cm 0; }
+  .about-section{ padding:2cm 0 3cm; }
   .contact-section{ padding-top:0; }
   .about-grid{ grid-template-columns:1fr; position:relative; padding-bottom:4cm; }
   .about-mobile-label{
