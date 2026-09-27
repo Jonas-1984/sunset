@@ -1662,7 +1662,7 @@ ul{ list-style:none; }
   transition:opacity .25s ease, transform .25s ease;
 }
 .footer-club-logo:hover{ opacity:1; transform:scale(1.05); }
-.footer-club-logo img{ width:90px; height:auto; }
+.footer-club-logo img{ width:auto; height:56px; }
 .footer-holidays{ display:flex; flex-direction:column; gap:6px; }
 .footer-holidays li{
   font-size:.85rem;
