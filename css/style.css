@@ -789,6 +789,11 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   justify-content:center;
   z-index:1;
 }
+.augustiner-img-wrap{
+  position:relative;
+  display:flex;
+}
+.augustiner-bier-wrap{ margin-right:-10px; }
 .augustiner-blur-bg{
   position:absolute;
   top:50%; left:50%;
@@ -809,10 +814,7 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   z-index:2;
   height:450px;
   width:auto;
-  margin-right:-10px;
   filter:drop-shadow(0 14px 22px rgba(0,0,0,.55));
-  transform:rotate(-3deg);
-  -webkit-box-reflect:below 4px linear-gradient(to bottom, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 30%);
   animation:augustiner-bottle-cycle 16s ease-in-out infinite;
 }
 .augustiner-logo-img{
@@ -821,18 +823,46 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   height:450px;
   width:auto;
   filter:drop-shadow(0 10px 18px rgba(0,0,0,.45));
-  -webkit-box-reflect:below 4px linear-gradient(to bottom, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 30%);
   animation:augustiner-logo-cycle 16s ease-in-out infinite;
 }
+/* Kein Eigendrehen der Bilder — stattdessen kommt jeweils eins nach
+   vorne (größer, scharf) während das andere nach hinten geht
+   (kleiner, blass, unscharf), abwechselnd alle 8s. */
 @keyframes augustiner-bottle-cycle{
-  0%,42%{ opacity:1; filter:drop-shadow(0 14px 22px rgba(0,0,0,.55)) blur(0); }
-  50%,92%{ opacity:.3; filter:drop-shadow(0 14px 22px rgba(0,0,0,.55)) blur(6px); }
-  100%{ opacity:1; filter:drop-shadow(0 14px 22px rgba(0,0,0,.55)) blur(0); }
+  0%,42%{ opacity:1; filter:drop-shadow(0 14px 22px rgba(0,0,0,.55)) blur(0); transform:rotate(-3deg) scale(1); }
+  50%,92%{ opacity:.3; filter:drop-shadow(0 14px 22px rgba(0,0,0,.55)) blur(6px); transform:rotate(-3deg) scale(.8); }
+  100%{ opacity:1; filter:drop-shadow(0 14px 22px rgba(0,0,0,.55)) blur(0); transform:rotate(-3deg) scale(1); }
 }
 @keyframes augustiner-logo-cycle{
-  0%,42%{ opacity:.3; filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) blur(6px); }
-  50%,92%{ opacity:1; filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) blur(0); }
-  100%{ opacity:.3; filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) blur(6px); }
+  0%,42%{ opacity:.3; filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) blur(6px); transform:scale(.8); }
+  50%,92%{ opacity:1; filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) blur(0); transform:scale(1); }
+  100%{ opacity:.3; filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) blur(6px); transform:scale(.8); }
+}
+/* Reflection: gespiegeltes Bild-Duplikat direkt unter dem Original,
+   per Maske schnell ausgeblendet (klein, aber erkennbar). */
+.augustiner-reflect{
+  position:absolute;
+  top:100%;
+  left:0;
+  pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.6) 0%, transparent 22%);
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.6) 0%, transparent 22%);
+}
+.augustiner-bier-img.augustiner-reflect{
+  animation:augustiner-bottle-reflect-cycle 16s ease-in-out infinite;
+}
+.augustiner-logo-img.augustiner-reflect{
+  animation:augustiner-logo-reflect-cycle 16s ease-in-out infinite;
+}
+@keyframes augustiner-bottle-reflect-cycle{
+  0%,42%{ opacity:1; filter:blur(0); transform:scaleY(-1) rotate(3deg) scale(1); }
+  50%,92%{ opacity:.3; filter:blur(6px); transform:scaleY(-1) rotate(3deg) scale(.8); }
+  100%{ opacity:1; filter:blur(0); transform:scaleY(-1) rotate(3deg) scale(1); }
+}
+@keyframes augustiner-logo-reflect-cycle{
+  0%,42%{ opacity:.3; filter:blur(6px); transform:scaleY(-1) scale(.8); }
+  50%,92%{ opacity:1; filter:blur(0); transform:scaleY(-1) scale(1); }
+  100%{ opacity:.3; filter:blur(6px); transform:scaleY(-1) scale(.8); }
 }
 .augustiner-caption{
   position:relative;
