@@ -481,6 +481,18 @@ body.winter-bg .page-bg{
 .snow:nth-child(49){ --left-ini:4vw; --left-end:8vw; left:22vw; animation:snowfall 12s linear infinite; animation-delay:-10s; }
 .snow:nth-child(50){ --left-ini:-4vw; --left-end:4vw; left:100vw; animation:snowfall 14s linear infinite; animation-delay:-9s; }
 
+/* Windspiel: hängt vom Telefon-Button im Hero bis 5px über
+   "Herzhaft & Bodenständig" — Position/Höhe werden per JS anhand
+   der tatsächlichen Layout-Positionen beider Elemente gesetzt. */
+.chimes-anim{
+  position:absolute;
+  top:0;
+  width:140px;
+  z-index:5;
+  pointer-events:none;
+}
+.chimes-anim svg{ width:100%; height:100%; display:block; }
+
 .hero-bg{
   position:absolute;
   inset:0;
