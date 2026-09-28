@@ -397,6 +397,29 @@ ul{ list-style:none; }
   50%{ opacity:.85; }
 }
 
+/* Weihnachtsmann-Schlitten: fliegt periodisch von links nach rechts
+   über den Hero und verschwindet rechts wieder aus dem Bild. */
+.hero-santa{
+  position:absolute;
+  top:16%;
+  left:0;
+  width:200px;
+  height:150px;
+  z-index:1;
+  pointer-events:none;
+  transform:translateX(-150%);
+  animation:santa-fly 26s linear infinite;
+}
+.hero-santa svg{ width:100%; height:100%; display:block; }
+@keyframes santa-fly{
+  0%, 22%{ transform:translateX(-150%); }
+  55%{ transform:translateX(calc(100vw + 50%)); }
+  100%{ transform:translateX(calc(100vw + 50%)); }
+}
+@media (max-width:700px){
+  .hero-santa{ width:130px; height:97.5px; top:12%; }
+}
+
 .hero-content .eyebrow{
   filter:drop-shadow(0 2px 12px rgba(0,0,0,.8));
 }

@@ -21,6 +21,24 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateClock, 30000);
   }
 
+  /* ---------------- Hero: Weihnachtsmann-Schlitten (Lottie) ---------------- */
+  (() => {
+    const el = document.getElementById('hero-santa');
+    const dataEl = document.getElementById('lottie-santa-data');
+    if (!el || !dataEl || typeof lottie === 'undefined') return;
+    // Embedded JSON (not fetch()'d) so this still works when the
+    // site is opened directly from disk via file:// — Chrome
+    // blocks fetch() for local files, which lottie's `path`
+    // option relies on.
+    lottie.loadAnimation({
+      container: el,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: JSON.parse(dataEl.textContent)
+    });
+  })();
+
   /* ---------------- Footer: upcoming Bavarian public holidays ---------------- */
   const holidaysEl = document.getElementById('footer-holidays');
   if (holidaysEl) {
