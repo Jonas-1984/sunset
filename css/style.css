@@ -1324,6 +1324,12 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   color:transparent;
   margin-bottom:10px;
 }
+.gallery-title sup{
+  font-size:1.1rem;
+  color:var(--cream-dim);
+  font-weight:400;
+  margin-left:2px;
+}
 .gallery-slide[data-index="0"] .gallery-title,
 .gallery-slide[data-index="14"] .gallery-title{ font-weight:400; }
 .gallery-ingredients{
