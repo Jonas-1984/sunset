@@ -108,6 +108,9 @@ ul{ list-style:none; }
 body.winter-bg .page-bg{
   background-image:url("../image/winter.jpg");
 }
+body.winter-bg .hero-snow-clip{
+  display:block;
+}
 /* Evening-blue sky gradient across the very top of the photo */
 .page-bg::before{
   content:"";
@@ -389,6 +392,7 @@ body.winter-bg .page-bg{
    intern 100vh hoch, damit die Fallgeschwindigkeit/-strecke der
    Flocken unverändert bleibt und nur das Sichtfenster kleiner ist. */
 .hero-snow-clip{
+  display:none; /* nur in Winterzeiten sichtbar, siehe body.winter-bg */
   position:absolute;
   top:0; left:0;
   width:100%;
