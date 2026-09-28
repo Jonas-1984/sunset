@@ -758,9 +758,13 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   box-shadow:0 6px 20px rgba(255,94,58,.35);
 }
 
-/* Augustiner-Feature: Logo mit unscharfem Glow-Hintergrund, das
-   Bier-Foto liegt 10px überlappend links darüber (Schatten/3D), und
-   darunter wechselt der Text per Fade+Blur zwischen zwei Zeilen. */
+/* Augustiner-Feature: Standardansicht der Speisekarte, bevor ein
+   Tab angeklickt wird. Logo mit unscharfem Glow-Hintergrund, das
+   Bier-Foto liegt 10px überlappend links darüber (Schatten/3D),
+   beide wechseln sich alle 8s per Fade+Blur ab, darunter wechselt
+   der Text per Fade+Blur zwischen zwei Zeilen. Beim Klick auf einen
+   Menu-Tab blendet das Ganze per .is-fading aus, .is-hidden nimmt es
+   danach aus dem Layout (siehe script.js). */
 .augustiner-feature{
   position:relative;
   display:flex;
@@ -768,6 +772,15 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   align-items:center;
   margin:0 auto 60px;
   padding:20px 24px 0;
+  transition:opacity .5s ease, filter .5s ease;
+}
+.augustiner-feature.is-fading{
+  opacity:0;
+  filter:blur(14px);
+  pointer-events:none;
+}
+.augustiner-feature.is-hidden{
+  display:none;
 }
 .augustiner-logos{
   position:relative;
@@ -779,8 +792,8 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
 .augustiner-blur-bg{
   position:absolute;
   top:50%; left:50%;
-  width:260px;
-  height:260px;
+  width:780px;
+  height:780px;
   background-image:url("../image/augustiner-logo.png");
   background-size:contain;
   background-position:center;
@@ -794,18 +807,32 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
 .augustiner-bier-img{
   position:relative;
   z-index:2;
-  height:150px;
+  height:450px;
   width:auto;
   margin-right:-10px;
   filter:drop-shadow(0 14px 22px rgba(0,0,0,.55));
   transform:rotate(-3deg);
+  -webkit-box-reflect:below 4px linear-gradient(to bottom, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 30%);
+  animation:augustiner-bottle-cycle 16s ease-in-out infinite;
 }
 .augustiner-logo-img{
   position:relative;
   z-index:1;
-  height:150px;
+  height:450px;
   width:auto;
   filter:drop-shadow(0 10px 18px rgba(0,0,0,.45));
+  -webkit-box-reflect:below 4px linear-gradient(to bottom, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 30%);
+  animation:augustiner-logo-cycle 16s ease-in-out infinite;
+}
+@keyframes augustiner-bottle-cycle{
+  0%,42%{ opacity:1; filter:drop-shadow(0 14px 22px rgba(0,0,0,.55)) blur(0); }
+  50%,92%{ opacity:.3; filter:drop-shadow(0 14px 22px rgba(0,0,0,.55)) blur(6px); }
+  100%{ opacity:1; filter:drop-shadow(0 14px 22px rgba(0,0,0,.55)) blur(0); }
+}
+@keyframes augustiner-logo-cycle{
+  0%,42%{ opacity:.3; filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) blur(6px); }
+  50%,92%{ opacity:1; filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) blur(0); }
+  100%{ opacity:.3; filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) blur(6px); }
 }
 .augustiner-caption{
   position:relative;
@@ -819,8 +846,13 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
 .augustiner-text{
   position:absolute;
   top:0; left:0; right:0;
-  color:var(--cream-dim);
-  font-size:1.05rem;
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.2rem;
+  background:var(--gradient-sunset);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 .augustiner-text-1{ animation:augustiner-fade-1 10s ease-in-out infinite; }
 .augustiner-text-2{ animation:augustiner-fade-2 10s ease-in-out infinite; }
@@ -832,6 +864,10 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   0%,35%{ opacity:0; filter:blur(8px); }
   45%,90%{ opacity:1; filter:blur(0); }
   100%{ opacity:0; filter:blur(8px); }
+}
+@media (max-width:700px){
+  .augustiner-blur-bg{ width:420px; height:420px; }
+  .augustiner-bier-img, .augustiner-logo-img{ height:220px; }
 }
 
 .allergen-legend{

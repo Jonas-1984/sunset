@@ -362,12 +362,24 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------------- Menu tabs ---------------- */
   const tabs = document.querySelectorAll('.menu-tab');
   const panels = document.querySelectorAll('.menu-panel');
+  const augustinerFeature = document.getElementById('augustiner-feature');
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
-      panels.forEach(p => p.classList.remove('active'));
       tab.classList.add('active');
-      document.getElementById(tab.dataset.target).classList.add('active');
+      const showPanel = () => {
+        panels.forEach(p => p.classList.remove('active'));
+        document.getElementById(tab.dataset.target).classList.add('active');
+      };
+      if (augustinerFeature && !augustinerFeature.classList.contains('is-hidden')) {
+        augustinerFeature.classList.add('is-fading');
+        setTimeout(() => {
+          augustinerFeature.classList.add('is-hidden');
+          showPanel();
+        }, 500);
+      } else {
+        showPanel();
+      }
     });
   });
 
