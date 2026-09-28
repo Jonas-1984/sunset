@@ -1318,7 +1318,7 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
    Kante und 3D-wirkendem Schlagschatten + innerem Bevel statt Freisteller. */
 .gallery-media-drink{
   width:180px;
-  aspect-ratio:3/4;
+  aspect-ratio:332/640; /* exakte Fotogröße, damit nichts beschnitten wird */
   flex-shrink:0;
   border-radius:22px;
   padding:2px;
@@ -1329,7 +1329,7 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   width:100%;
   max-width:none;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   display:block;
   border-radius:20px;
   filter:none;
