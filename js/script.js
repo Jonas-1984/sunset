@@ -2,6 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------------- Winter-Hintergrund (1. Dez. – 28. Feb.) ---------------- */
   (() => {
+    const params = new URLSearchParams(location.search);
+    // Vorschau zum Testen: index.html?winter=1 erzwingt den Winter-Look
+    // unabhängig vom aktuellen Datum, egal in welcher Jahreszeit.
+    if (params.get('winter') === '1') {
+      document.body.classList.add('winter-bg');
+      return;
+    }
     const now = new Date();
     const month = now.getMonth() + 1; // 1-12
     const day = now.getDate();
