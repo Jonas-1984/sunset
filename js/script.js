@@ -9,13 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isWinter) document.body.classList.add('winter-bg');
   })();
 
-  /* ---------------- Windspiel: vom Telefon-Button bis zur Speisekarte ---------------- */
+  /* ---------------- Windspiel: hängt oben links von der Webseite ---------------- */
   (() => {
     const el = document.getElementById('chimes-anim');
     const dataEl = document.getElementById('lottie-chimes-data');
-    const btn = document.getElementById('hero-call-btn');
-    const target = document.getElementById('menu-eyebrow');
-    if (!el || !dataEl || !btn || !target || typeof lottie === 'undefined') return;
+    if (!el || !dataEl || typeof lottie === 'undefined') return;
 
     lottie.loadAnimation({
       container: el,
@@ -24,21 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
       autoplay: true,
       animationData: JSON.parse(dataEl.textContent)
     });
-
-    const sizeChimes = () => {
-      const btnRect = btn.getBoundingClientRect();
-      const targetRect = target.getBoundingClientRect();
-      const top = btnRect.bottom + window.scrollY;
-      const gap = Math.max(0, targetRect.top + window.scrollY - 5 - top);
-      const size = Math.min(gap, 140); // quadratisch, nie größer als die Lücke
-      el.style.top = top + 'px';
-      el.style.height = size + 'px';
-      el.style.width = size + 'px';
-      el.style.left = (btnRect.left + btnRect.width / 2 + window.scrollX) + 'px';
-      el.style.transform = 'translateX(-50%)';
-    };
-    sizeChimes();
-    window.addEventListener('resize', sizeChimes);
   })();
 
   /* ---------------- Hero: Schneefall bis zur Logo-Position ---------------- */
