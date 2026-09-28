@@ -16,8 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isWinter) document.body.classList.add('winter-bg');
   })();
 
+  /* ---------------- Weihnachtszeit (29. Nov. – 6. Jan.) ---------------- */
+  (() => {
+    const params = new URLSearchParams(location.search);
+    // Vorschau zum Testen: index.html?xmas=1 erzwingt Baum + Windspiel
+    // unabhängig vom aktuellen Datum.
+    if (params.get('xmas') === '1') {
+      document.body.classList.add('christmas-time');
+      return;
+    }
+    const now = new Date();
+    const month = now.getMonth() + 1; // 1-12
+    const day = now.getDate();
+    const isChristmasTime = (month === 11 && day >= 29) || month === 12 || (month === 1 && day <= 6);
+    if (isChristmasTime) document.body.classList.add('christmas-time');
+  })();
+
   /* ---------------- Windspiel: hängt oben links von der Webseite ---------------- */
   (() => {
+    if (!document.body.classList.contains('christmas-time')) return;
     const el = document.getElementById('chimes-anim');
     const dataEl = document.getElementById('lottie-chimes-data');
     if (!el || !dataEl || typeof lottie === 'undefined') return;
@@ -68,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------------- Hero: wachsender Weihnachtsbaum (GSAP), alle 20s ---------------- */
   (() => {
+    if (!document.body.classList.contains('christmas-time')) return;
     const wrap = document.getElementById('hero-tree-anim');
     if (!wrap || typeof gsap === 'undefined') return;
     gsap.registerPlugin(MorphSVGPlugin, DrawSVGPlugin, Physics2DPlugin, MotionPathPlugin);
