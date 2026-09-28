@@ -415,7 +415,7 @@ ul{ list-style:none; }
   margin:0 auto;
   pointer-events:none;
 }
-.hero-tree-anim + .eyebrow-hero{ margin-top:2cm; }
+.hero-tree-anim + .eyebrow-hero{ margin-top:20px; }
 .hero-tree-anim .mainSVG{
   visibility:hidden;
   display:block;
