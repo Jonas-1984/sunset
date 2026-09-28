@@ -32,6 +32,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isChristmasTime) document.body.classList.add('christmas-time');
   })();
 
+  /* ---------------- Augustiner: Bilder wechseln wie das Galerie-Karussell ---------------- */
+  (() => {
+    const slides = document.querySelectorAll('#augustiner-slides .augustiner-slide');
+    if (!slides.length) return;
+    const n = slides.length;
+    let index = 0;
+    const showSlide = (i) => {
+      index = ((i % n) + n) % n;
+      slides.forEach((slide, idx) => {
+        slide.classList.remove('active', 'prev', 'next');
+        if (idx === index) slide.classList.add('active');
+        else if (idx === (index - 1 + n) % n) slide.classList.add('prev');
+        else if (idx === (index + 1) % n) slide.classList.add('next');
+      });
+    };
+    showSlide(0);
+    setInterval(() => showSlide(index + 1), 8000);
+  })();
+
   /* ---------------- Windspiel: hängt oben links von der Webseite ---------------- */
   (() => {
     if (!document.body.classList.contains('christmas-time')) return;
