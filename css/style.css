@@ -487,14 +487,14 @@ body.winter-bg .page-bg{
   position:absolute;
   top:0;
   left:0;
-  width:280px;
-  height:280px;
+  width:560px;
+  height:560px;
   z-index:1002;
   pointer-events:none;
 }
 .chimes-anim svg{ width:100%; height:100%; display:block; }
 @media (max-width:700px){
-  .chimes-anim{ left:-30px; }
+  .chimes-anim{ width:280px; height:280px; left:-60px; }
 }
 
 .hero-bg{
