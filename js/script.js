@@ -1,5 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---------------- Winter-Hintergrund (1. Dez. – 28. Feb.) ---------------- */
+  (() => {
+    const now = new Date();
+    const month = now.getMonth() + 1; // 1-12
+    const day = now.getDate();
+    const isWinter = month === 12 || month === 1 || (month === 2 && day <= 28);
+    if (isWinter) document.body.classList.add('winter-bg');
+  })();
+
   /* ---------------- Hero: Schneefall bis zur Logo-Position ---------------- */
   const heroSnowClip = document.getElementById('hero-snow-clip');
   const heroTitleCard = document.querySelector('.hero-title-card');

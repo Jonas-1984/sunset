@@ -103,6 +103,11 @@ ul{ list-style:none; }
   -webkit-mask-image:linear-gradient(to bottom, #000 0, #000 100vh, transparent 130vh);
   mask-image:linear-gradient(to bottom, #000 0, #000 100vh, transparent 130vh);
 }
+/* Winterzeit (1. Dez. – 28. Feb., per JS anhand des Systemdatums
+   erkannt): ersetzt das Hintergrundfoto durch die Winter-Variante. */
+body.winter-bg .page-bg{
+  background-image:url("../image/winter.jpg");
+}
 /* Evening-blue sky gradient across the very top of the photo */
 .page-bg::before{
   content:"";
