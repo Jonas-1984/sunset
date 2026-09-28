@@ -1793,6 +1793,11 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   font-size:.9rem;
   color:var(--cream-dim);
 }
+.hours-note{
+  margin-top:10px;
+  font-size:.8rem;
+  color:rgba(255,255,255,.45);
+}
 
 .social-row{
   display:flex;
