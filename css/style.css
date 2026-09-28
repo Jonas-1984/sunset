@@ -1666,6 +1666,12 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
 
 .about-text p{ color:var(--cream-dim); margin-bottom:16px; }
 .about-text strong{ color:var(--gold); }
+.about-text p.about-signature{
+  font-family:var(--font-script);
+  font-size:1.4rem;
+  color:var(--gold);
+  margin-top:-4px;
+}
 
 .about-features{
   margin-top:32px;
