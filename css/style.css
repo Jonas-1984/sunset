@@ -407,6 +407,25 @@ ul{ list-style:none; }
   color:var(--gold);
   font-size:1rem;
 }
+/* Wachsender Weihnachtsbaum: sitzt direkt über "Willkommen in Bayern"
+   mit möglichst wenig Abstand, dafür so groß wie sinnvoll möglich. */
+.hero-tree-anim{
+  width:clamp(200px,28vw,340px);
+  aspect-ratio:4/3;
+  margin:0 auto;
+  pointer-events:none;
+}
+.hero-tree-anim + .eyebrow-hero{ margin-top:6px; }
+.hero-tree-anim .mainSVG{
+  visibility:hidden;
+  display:block;
+  width:100%;
+  height:100%;
+}
+.hero-tree-anim .particle{ pointer-events:none; }
+@media (max-width:700px){
+  .hero-tree-anim{ width:clamp(150px,46vw,220px); }
+}
 
 .hero-content{
   position:relative;

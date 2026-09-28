@@ -21,6 +21,109 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateClock, 30000);
   }
 
+  /* ---------------- Hero: wachsender Weihnachtsbaum (GSAP), alle 20s ---------------- */
+  (() => {
+    const wrap = document.getElementById('hero-tree-anim');
+    if (!wrap || typeof gsap === 'undefined') return;
+    gsap.registerPlugin(MorphSVGPlugin, DrawSVGPlugin, Physics2DPlugin, MotionPathPlugin);
+
+    const svgRoot = wrap.querySelector('.mainSVG');
+    const sparkle = wrap.querySelector('.sparkle');
+    const pContainer = wrap.querySelector('.pContainer');
+    const treePathMask = wrap.querySelector('.treePathMask');
+    const treePotMask = wrap.querySelector('.treePotMask');
+    const treeBottomMask = wrap.querySelector('.treeBottomMask');
+    const treeStar = wrap.querySelector('.treeStar');
+    const treeStarOutline = wrap.querySelector('.treeStarOutline');
+    const treePath = wrap.querySelector('.treePath');
+    const treeBottomPath = wrap.querySelector('.treeBottomPath');
+
+    MorphSVGPlugin.convertToPath(wrap.querySelectorAll('polygon'));
+    gsap.set(svgRoot, { visibility: 'visible' });
+    gsap.set(sparkle, { transformOrigin: '50% 50%', y: -100 });
+
+    const bottomStartPt = treeBottomPath.getPointAtLength(0);
+    const bottomStart = { x: bottomStartPt.x, y: bottomStartPt.y };
+
+    const colors = '#E8F6F8 #ACE8F8 #F6FBFE #A2CBDC #B74551 #5DBA72 #910B28 #910B28 #446D39'.split(' ');
+    const shapeIds = ['#circ', '#star', '#cross', '#heart'];
+    const randScale = gsap.utils.random(0.5, 3, 0.001, true);
+    const particles = [];
+    let particleIndex = 0;
+    let followingPath = true;
+
+    for (let i = 0; i < 201; i++) {
+      const src = wrap.querySelector(shapeIds[i % shapeIds.length]);
+      const clone = src.cloneNode(true);
+      svgRoot.appendChild(clone);
+      clone.setAttribute('fill', colors[i % colors.length]);
+      clone.setAttribute('class', 'particle');
+      particles.push(clone);
+      gsap.set(clone, { x: -100, y: -100, transformOrigin: '50% 50%' });
+    }
+
+    const flicker = (el) => {
+      gsap.killTweensOf(el, { opacity: true });
+      gsap.fromTo(el, { opacity: 1 }, { duration: 0.07, opacity: Math.random(), repeat: -1 });
+    };
+
+    const burstNext = () => {
+      if (!followingPath) return;
+      const el = particles[particleIndex];
+      gsap.set(el, { x: gsap.getProperty(pContainer, 'x'), y: gsap.getProperty(pContainer, 'y'), scale: randScale() });
+      gsap.timeline().to(el, {
+        duration: gsap.utils.random(0.61, 6),
+        physics2D: { velocity: gsap.utils.random(-23, 23), angle: gsap.utils.random(-180, 180), gravity: gsap.utils.random(-6, 50) },
+        scale: 0,
+        rotation: gsap.utils.random(-123, 360),
+        ease: 'power1',
+        onStart: flicker,
+        onStartParams: [el],
+        onRepeat: (b) => gsap.set(b, { scale: randScale() }),
+        onRepeatParams: [el]
+      });
+      particleIndex = (particleIndex + 1) % particles.length;
+    };
+
+    const resetScene = () => {
+      // treePathMask/treePotMask (drawSVG) and treeStar (scale) are driven
+      // by .from() tweens below, which capture "current value" as their
+      // implicit end target — resetting those here would make them animate
+      // from 0 to 0. Only reset props driven by .to() tweens or by physics.
+      followingPath = true;
+      particleIndex = 0;
+      gsap.set(treeStarOutline, { opacity: 0 });
+      gsap.set(sparkle, { opacity: 1, x: 0, y: -100 });
+      gsap.set(pContainer, { x: 0, y: -100 });
+      particles.forEach((p) => { gsap.killTweensOf(p); gsap.set(p, { x: -100, y: -100, opacity: 1, scale: 0 }); });
+    };
+
+    const playGrow = () => {
+      resetScene();
+
+      const kTl = gsap.timeline({ onUpdate: burstNext });
+      kTl.to([pContainer, sparkle], { duration: 6, motionPath: { path: treePath, autoRotate: false }, ease: 'linear' })
+        .to([pContainer, sparkle], { duration: 1, onStart: () => { followingPath = false; }, x: bottomStart.x, y: bottomStart.y })
+        .to([pContainer, sparkle], { duration: 2, onStart: () => { followingPath = true; }, motionPath: { path: treeBottomPath, autoRotate: false }, ease: 'linear' }, '-=0')
+        .from(treeBottomMask, { duration: 2, drawSVG: '0% 0%', stroke: '#FFF', ease: 'linear' }, '-=2');
+
+      const mainTl = gsap.timeline({ delay: 0, repeat: 0 });
+      mainTl
+        .from([treePathMask, treePotMask], {
+          drawSVG: '0% 0%', stroke: '#FFF', stagger: { each: 6 }, duration: gsap.utils.wrap([6, 1, 2]), ease: 'linear'
+        })
+        .from(treeStar, { duration: 3, scaleY: 0, scaleX: 0.15, transformOrigin: '50% 50%', ease: 'elastic(1,0.5)' }, '-=4')
+        .to(sparkle, { duration: 3, opacity: 0, ease: 'rough({strength: 2, points: 100, template: linear, taper: both, randomize: true, clamp: false})' }, '-=0')
+        .to(treeStarOutline, { duration: 1, opacity: 1, ease: 'rough({strength: 2, points: 16, template: linear, taper: none, randomize: true, clamp: false})' }, '+=1');
+
+      mainTl.add(kTl, 0);
+      mainTl.timeScale(1.5);
+    };
+
+    playGrow();
+    setInterval(playGrow, 20000);
+  })();
+
   /* ---------------- Footer: upcoming Bavarian public holidays ---------------- */
   const holidaysEl = document.getElementById('footer-holidays');
   if (holidaysEl) {
