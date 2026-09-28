@@ -1333,6 +1333,7 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
 .gallery-price{
   font-weight:700;
   font-size:1.15rem;
+  white-space:nowrap;
   background:var(--gradient-sunset);
   -webkit-background-clip:text;
   background-clip:text;
