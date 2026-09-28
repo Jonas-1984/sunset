@@ -1314,6 +1314,30 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   height:auto;
   filter:drop-shadow(0 10px 24px rgba(0,0,0,.45));
 }
+/* Drink-Fotos: quadratischer Rahmen mit dünner Sunset-Gradient-Kante
+   und 3D-wirkendem Schlagschatten + innerem Bevel statt Freisteller. */
+.gallery-media-drink{
+  width:220px;
+  aspect-ratio:1/1;
+  flex-shrink:0;
+  border-radius:22px;
+  padding:5px;
+  background:var(--gradient-sunset);
+  box-shadow:0 16px 34px rgba(0,0,0,.5), 0 1px 0 rgba(255,255,255,.25) inset;
+}
+.gallery-media-drink img{
+  width:100%;
+  max-width:none;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  border-radius:18px;
+  filter:none;
+  box-shadow:inset 0 3px 10px rgba(0,0,0,.5), inset 0 -2px 6px rgba(255,255,255,.08);
+}
+@media (max-width:900px){
+  .gallery-media-drink{ width:170px; }
+}
 .gallery-title{
   font-family:var(--font-display);
   font-size:clamp(1.3rem, 2.2vw, 1.6rem);
