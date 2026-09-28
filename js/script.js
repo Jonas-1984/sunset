@@ -1,5 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---------------- Hero: Schneefall bis zur Logo-Position ---------------- */
+  const heroSnowClip = document.getElementById('hero-snow-clip');
+  const heroTitleCard = document.querySelector('.hero-title-card');
+  const heroEl = document.getElementById('home');
+  if (heroSnowClip && heroTitleCard && heroEl) {
+    const sizeHeroSnow = () => {
+      const heroTop = heroEl.getBoundingClientRect().top;
+      const logoBottom = heroTitleCard.getBoundingClientRect().bottom;
+      heroSnowClip.style.height = Math.max(0, logoBottom - heroTop) + 'px';
+    };
+    sizeHeroSnow();
+    window.addEventListener('resize', sizeHeroSnow);
+  }
+
   /* ---------------- Footer year ---------------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
