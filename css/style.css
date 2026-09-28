@@ -435,6 +435,7 @@ ul{ list-style:none; }
 }
 @media (max-width:700px){
   .hero-tree-anim{ width:clamp(300px,92vw,440px); }
+  .hero-tree-anim + .eyebrow-hero{ margin-top:10px; }
 }
 
 .hero-content{
@@ -444,6 +445,9 @@ ul{ list-style:none; }
   max-width:800px;
   padding:0 24px;
   margin-top:2cm; /* Abstand von der Seitenspitze bis zum Weihnachtsbaum */
+}
+@media (max-width:700px){
+  .hero-content{ margin-top:10px; }
 }
 
 /* Logo stands directly on the photo — no card/background behind it. */
