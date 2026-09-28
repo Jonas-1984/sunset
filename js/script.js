@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const treeStarOutline = wrap.querySelector('.treeStarOutline');
     const treePath = wrap.querySelector('.treePath');
     const treeBottomPath = wrap.querySelector('.treeBottomPath');
+    const treeMessage = wrap.querySelector('.hero-tree-message');
 
     MorphSVGPlugin.convertToPath(wrap.querySelectorAll('polygon'));
     gsap.set(svgRoot, { visibility: 'visible' });
@@ -93,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       followingPath = true;
       particleIndex = 0;
       gsap.set(treeStarOutline, { opacity: 0 });
+      gsap.set(treeMessage, { opacity: 0 });
       gsap.set(sparkle, { opacity: 1, x: 0, y: -100 });
       gsap.set(pContainer, { x: 0, y: -100 });
       particles.forEach((p) => { gsap.killTweensOf(p); gsap.set(p, { x: -100, y: -100, opacity: 1, scale: 0 }); });
@@ -114,7 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .from(treeStar, { duration: 3, scaleY: 0, scaleX: 0.15, transformOrigin: '50% 50%', ease: 'elastic(1,0.5)' }, '-=4')
         .to(sparkle, { duration: 3, opacity: 0, ease: 'rough({strength: 2, points: 100, template: linear, taper: both, randomize: true, clamp: false})' }, '-=0')
-        .to(treeStarOutline, { duration: 1, opacity: 1, ease: 'rough({strength: 2, points: 16, template: linear, taper: none, randomize: true, clamp: false})' }, '+=1');
+        .to(treeStarOutline, { duration: 1, opacity: 1, ease: 'rough({strength: 2, points: 16, template: linear, taper: none, randomize: true, clamp: false})' }, '+=1')
+        .to(treeMessage, { duration: 1, opacity: 1 }, '+=0.3');
 
       mainTl.add(kTl, 0);
       mainTl.timeScale(1.5);
