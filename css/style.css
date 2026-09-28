@@ -790,7 +790,7 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   position:relative;
   width:100%;
   max-width:520px;
-  height:450px;
+  height:430px;
   z-index:1;
 }
 .augustiner-slide{
@@ -816,7 +816,7 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
 .augustiner-bier-img{
   position:relative;
   z-index:2;
-  height:450px;
+  height:430px;
   width:auto;
   filter:drop-shadow(0 14px 22px rgba(0,0,0,.55));
   transform:rotate(-3deg);
@@ -824,14 +824,14 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
 .augustiner-logo-img{
   position:relative;
   z-index:1;
-  height:450px;
+  height:430px;
   width:auto;
   filter:drop-shadow(0 10px 18px rgba(0,0,0,.45));
 }
 .augustiner-photo-img{
   position:relative;
   z-index:1;
-  height:300px;
+  height:280px;
   width:auto;
   filter:drop-shadow(0 10px 18px rgba(0,0,0,.45));
 }
@@ -867,9 +867,9 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   100%{ opacity:0; filter:blur(8px); }
 }
 @media (max-width:700px){
-  .augustiner-logos{ height:220px; }
-  .augustiner-bier-img, .augustiner-logo-img{ height:220px; }
-  .augustiner-photo-img{ height:150px; }
+  .augustiner-logos{ height:200px; }
+  .augustiner-bier-img, .augustiner-logo-img{ height:200px; }
+  .augustiner-photo-img{ height:130px; }
 }
 
 .allergen-legend{
