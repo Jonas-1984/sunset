@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sunset Restaurant &amp; Bar – Küche mit Genuss</title>
 <meta name="description" content="Sunset Restaurant & Bar – Herzliche Gastlichkeit trifft auf den Zauber der Abenddämmerung. Speisekarte, Reservierung und mehr.">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.open-meteo.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"><link rel="icon" href="image/Logo.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&family=Great+Vibes&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://api.open-meteo.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<link rel="icon" href="image/Logo.png" type="image/png">
+<link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -1084,14 +1083,11 @@
 <!-- ===================== FOOTER ===================== -->
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div class="footer-map">
-      <iframe
-        src="https://www.google.com/maps?q=Friedrich-Ludwig-Jahn-Stra%C3%9Fe+11,+84453+M%C3%BChldorf+am+Inn&output=embed"
-        title="Standort Sunset Restaurant & Bar auf Google Maps"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen>
-      </iframe>
+    <div class="footer-map" id="footer-map">
+      <div class="footer-map-placeholder" id="footer-map-placeholder">
+        <p>Karte wird erst nach Klick geladen – dabei wird eine Verbindung zu Google Maps hergestellt und Ihre IP-Adresse übertragen.</p>
+        <button type="button" class="btn btn-outline" id="footer-map-load-btn">Karte laden</button>
+      </div>
     </div>
     <div class="footer-brand">
       <ul class="footer-live" id="footer-live">
@@ -1233,13 +1229,13 @@
       DSGVO (Vertragsanbahnung).</p>
 
       <h4>4. Eingebundene Drittanbieter-Dienste</h4>
-      <p><strong>Google Fonts:</strong> Zur einheitlichen Darstellung von Schriftarten lädt unsere Website
-      Schriftarten von Google Fonts (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland).
-      Dabei wird eine Verbindung zu Servern von Google hergestellt, wobei Ihre IP-Adresse übertragen werden kann.</p>
-      <p><strong>Google Maps:</strong> Im Kontaktbereich binden wir eine Karte von Google Maps (Google Ireland
-      Limited) ein, um unseren Standort anzuzeigen. Beim Laden der Karte kann eine Verbindung zu Google-Servern
-      hergestellt und Ihre IP-Adresse übertragen werden. Weitere Informationen: Google-Datenschutzerklärung unter
-      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+      <p><strong>Google Maps:</strong> Im Kontaktbereich bieten wir einen Button "Karte laden" an. Erst wenn Sie
+      darauf klicken, wird eine Karte von Google Maps (Google Ireland Limited, Gordon House, Barrow Street,
+      Dublin 4, Irland) nachgeladen, um unseren Standort anzuzeigen. Erst durch diesen Klick wird eine Verbindung
+      zu Google-Servern hergestellt und Ihre IP-Adresse übertragen. Weitere Informationen: Google-Datenschutzerklärung
+      unter <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+      <p>Alle Schriftarten dieser Website sind lokal auf unserem eigenen Server eingebunden; es findet keine
+      Verbindung zu Google Fonts oder anderen Schriftarten-Diensten statt.</p>
       <p><strong>Wetterdaten:</strong> Zur Anzeige der aktuellen Wettervorhersage im Footer fragt unsere Website
       beim Dienst Open-Meteo (Open-Meteo.com) Daten ab. Hierbei wird Ihre IP-Adresse an Open-Meteo übermittelt.</p>
       <p><strong>Skript-Bibliotheken (CDN):</strong> Für Animationen binden wir technische Programmbibliotheken

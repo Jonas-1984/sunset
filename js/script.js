@@ -311,6 +311,22 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
+  /* ---------------- Click-to-load Google Maps (DSGVO) ---------------- */
+  const footerMapBtn = document.getElementById('footer-map-load-btn');
+  if (footerMapBtn) {
+    footerMapBtn.addEventListener('click', () => {
+      const mapContainer = document.getElementById('footer-map');
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.google.com/maps?q=Friedrich-Ludwig-Jahn-Stra%C3%9Fe+11,+84453+M%C3%BChldorf+am+Inn&output=embed';
+      iframe.title = 'Standort Sunset Restaurant & Bar auf Google Maps';
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.allowFullscreen = true;
+      mapContainer.innerHTML = '';
+      mapContainer.appendChild(iframe);
+    });
+  }
+
   /* ---------------- Sticky / shrinking header ---------------- */
   const header = document.getElementById('site-header');
   const onScroll = () => {
