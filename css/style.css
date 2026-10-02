@@ -219,13 +219,17 @@ body.winter-bg .hero-snow-clip{
   opacity:.6;
 }
 
-/* Datenschutz / Impressum modals: no spinning border */
+/* Datenschutz / Impressum modals: these modals scroll internally (.modal has
+   overflow-y:auto), so the absolutely-positioned gradient ::before would
+   scroll along with the text instead of staying on the frame. Use a real
+   border instead, which always stays fixed to the box edge. */
 #datenschutz-modal .glass-card::before,
 #impressum-modal .glass-card::before{
-  padding:1px;
-  background:var(--gradient-sunset);
-  animation:none;
-  opacity:.6;
+  display:none;
+}
+#datenschutz-modal .modal,
+#impressum-modal .modal{
+  border:1px solid var(--gold);
 }
 
 /* ---------------------------------------------------------
