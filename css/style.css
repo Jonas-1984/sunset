@@ -1846,6 +1846,13 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   gap:16px;
 }
 .form-group{ margin-bottom:16px; }
+.form-honeypot{
+  position:absolute;
+  left:-9999px;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
 .form-group label{
   display:block;
   font-size:.82rem;

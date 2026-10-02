@@ -575,9 +575,29 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reportValidity();
         return;
       }
-      successMsg.hidden = false;
-      form.reset();
-      setTimeout(() => { successMsg.hidden = true; }, 6000);
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wird gesendet…';
+
+      fetch(form.action, { method: 'POST', body: new FormData(form) })
+        .then((r) => r.json())
+        .then((data) => {
+          if (data.success) {
+            successMsg.hidden = false;
+            form.reset();
+            setTimeout(() => { successMsg.hidden = true; }, 6000);
+          } else {
+            alert('Die Anfrage konnte leider nicht gesendet werden. Bitte versuchen Sie es später erneut oder rufen Sie uns an.');
+          }
+        })
+        .catch(() => {
+          alert('Die Anfrage konnte leider nicht gesendet werden. Bitte versuchen Sie es später erneut oder rufen Sie uns an.');
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        });
     });
   }
 
