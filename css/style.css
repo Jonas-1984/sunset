@@ -219,6 +219,15 @@ body.winter-bg .hero-snow-clip{
   opacity:.6;
 }
 
+/* Datenschutz / Impressum modals: no spinning border */
+#datenschutz-modal .glass-card::before,
+#impressum-modal .glass-card::before{
+  padding:1px;
+  background:var(--gradient-sunset);
+  animation:none;
+  opacity:.6;
+}
+
 /* ---------------------------------------------------------
    Buttons
 --------------------------------------------------------- */
