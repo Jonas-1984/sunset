@@ -681,9 +681,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---------------- Allergen / Zusatzstoff modal ---------------- */
+  const allergenModal = document.getElementById('allergen-modal');
   document.getElementById('allergen-info-btn').addEventListener('click', () => {
-    openModal(document.getElementById('allergen-modal'));
+    openModal(allergenModal);
   });
+  // Egal welches Menu gerade offen ist: beim Schließen dieses Modals
+  // immer zurück zur Augustiner-Standardansicht der Speisekarte.
+  const resetToAugustiner = () => {
+    panels.forEach(p => p.classList.remove('active'));
+    tabs.forEach(t => t.classList.remove('active'));
+    const defaultTab = document.querySelector('.menu-tab[data-target="salate"]');
+    if (defaultTab) defaultTab.classList.add('active');
+    if (augustinerFeature) augustinerFeature.classList.remove('is-fading', 'is-hidden');
+  };
+  allergenModal.addEventListener('click', (e) => {
+    if (e.target === allergenModal) resetToAugustiner();
+  });
+  allergenModal.querySelectorAll('[data-close-modal]').forEach(btn => {
+    btn.addEventListener('click', resetToAugustiner);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && allergenModal.classList.contains('show')) resetToAugustiner();
+  }, true); // capture phase: must run before the generic Escape handler removes 'show'
 
   /* ---------------- Getränke category modals ---------------- */
   document.querySelectorAll('.drink-cat').forEach(tile => {
