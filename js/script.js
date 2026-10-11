@@ -877,7 +877,8 @@ function renderStars(rating) {
 async function initGoogleReviews() {
   const slideEl = document.getElementById('google-reviews-slide');
   const summaryEl = document.getElementById('google-reviews-summary');
-  if (!slideEl || !window.google) return;
+  if (!slideEl) return;
+  if (!window.google) { console.warn('Google-Bewertungen: Maps-Skript nicht geladen.'); return; }
 
   // Fällt auf den ursprünglichen, statischen Satz zurück, falls die API
   // nicht erreichbar ist - die Karte wirkt dann weiterhin fertig/beabsichtigt.
@@ -889,7 +890,7 @@ async function initGoogleReviews() {
       textQuery: 'Sunset Restaurant und Bar, Friedrich-Ludwig-Jahn-Str. 11, 84453 Mühldorf am Inn',
       fields: ['id']
     });
-    if (!places || !places[0]) { fallback(); return; }
+    if (!places || !places[0]) { console.warn('Google-Bewertungen: Ort nicht gefunden.'); fallback(); return; }
 
     const place = new Place({ id: places[0].id });
     await place.fetchFields({ fields: ['reviews', 'rating', 'userRatingCount'] });
@@ -899,7 +900,7 @@ async function initGoogleReviews() {
     }
 
     const reviews = (place.reviews || []).slice(0, 5);
-    if (!reviews.length) { fallback(); return; }
+    if (!reviews.length) { console.warn('Google-Bewertungen: keine Bewertungen in der Antwort.'); fallback(); return; }
 
     const renderReview = (r) => {
       const authorName = r.authorAttribution?.displayName || '';
@@ -921,6 +922,7 @@ async function initGoogleReviews() {
       }, 8000);
     }
   } catch (err) {
+    console.error('Google-Bewertungen Fehler:', err);
     fallback();
   }
 }
