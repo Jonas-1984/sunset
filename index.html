@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sunset Restaurant &amp; Bar – Küche mit Genuss</title>
 <meta name="description" content="Sunset Restaurant & Bar – Herzliche Gastlichkeit trifft auf den Zauber der Abenddämmerung. Speisekarte, Reservierung und mehr.">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://api.open-meteo.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://maps.googleapis.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://maps.gstatic.com https://maps.googleapis.com https://*.googleusercontent.com; connect-src 'self' https://api.open-meteo.com https://maps.googleapis.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self';">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <link rel="icon" href="image/Logo.png" type="image/png">
 <link rel="stylesheet" href="css/fonts.css">
@@ -1095,6 +1095,14 @@
         <p>Aktuelle Fotos, Aktionen und Neuigkeiten direkt aus dem Sunset Restaurant &amp; Bar.</p>
       </a>
     </div>
+
+    <div class="google-reviews reveal" id="google-reviews">
+      <h3>Das sagen unsere Gäste</h3>
+      <p class="google-reviews-summary" id="google-reviews-summary"></p>
+      <div class="google-reviews-list" id="google-reviews-list">
+        <p class="google-reviews-loading">Bewertungen werden geladen…</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1254,6 +1262,11 @@
       unter <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
       <p>Alle Schriftarten dieser Website sind lokal auf unserem eigenen Server eingebunden; es findet keine
       Verbindung zu Google Fonts oder anderen Schriftarten-Diensten statt.</p>
+      <p><strong>Google-Bewertungen (Google Places API):</strong> Im Kontaktbereich zeigen wir unsere aktuellen
+      Google-Bewertungen direkt an. Dabei wird beim Laden der Seite automatisch eine Verbindung zu den Servern
+      von Google (Google Ireland Limited) hergestellt und Ihre IP-Adresse übertragen, um die Bewertungsdaten
+      abzurufen. Weitere Informationen: Google-Datenschutzerklärung unter
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
       <p><strong>Wetterdaten:</strong> Zur Anzeige der aktuellen Wettervorhersage im Footer fragt unsere Website
       beim Dienst Open-Meteo (Open-Meteo.com) Daten ab. Hierbei wird Ihre IP-Adresse an Open-Meteo übermittelt.</p>
       <p><strong>Skript-Bibliotheken (CDN):</strong> Für Animationen binden wir technische Programmbibliotheken
@@ -1541,6 +1554,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js" integrity="sha384-8oj95/2bNit2rlOOsJCaGBxSngfBWjoyQ8MtNbxmuk0v0B2nAK3Bwb1OJ5fWMWlk" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js" integrity="sha384-hk4mr+NXgJSfCJFF+LKzt26e6ZekZmmXAesF9r58nbaoAqB/VAlvY4T8k2plkXf+" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Physics2DPlugin.min.js" integrity="sha384-pJ0BQo7Hj3l3RJkVnnsS/Zx1yIyxLtrDhu/TBj0JZK92Odxbh+St8qOFvj2EMdit" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/google-config.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

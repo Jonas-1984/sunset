@@ -851,3 +851,75 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+/* ---------------- Google-Bewertungen (Places API) ---------------- */
+(() => {
+  if (!window.GOOGLE_MAPS_API_KEY) return;
+  const s = document.createElement('script');
+  s.src = `https://maps.googleapis.com/maps/api/js?key=${window.GOOGLE_MAPS_API_KEY}&libraries=places&callback=initGoogleReviews`;
+  s.async = true;
+  s.defer = true;
+  document.body.appendChild(s);
+})();
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str || '';
+  return div.innerHTML;
+}
+
+function renderStars(rating) {
+  const full = Math.round(rating);
+  let out = '';
+  for (let i = 1; i <= 5; i++) out += i <= full ? '★' : '☆';
+  return out;
+}
+
+function initGoogleReviews() {
+  const listEl = document.getElementById('google-reviews-list');
+  const summaryEl = document.getElementById('google-reviews-summary');
+  if (!listEl || !window.google || !google.maps.places) return;
+
+  const showError = (msg) => { listEl.innerHTML = `<p class="google-reviews-error">${msg}</p>`; };
+
+  const service = new google.maps.places.PlacesService(document.createElement('div'));
+  service.findPlaceFromQuery({
+    query: 'Sunset Restaurant und Bar, Friedrich-Ludwig-Jahn-Str. 11, 84453 Mühldorf am Inn',
+    fields: ['place_id']
+  }, (results, status) => {
+    if (status !== google.maps.places.PlacesServiceStatus.OK || !results || !results[0]) {
+      showError('Bewertungen konnten nicht geladen werden.');
+      return;
+    }
+    service.getDetails({
+      placeId: results[0].place_id,
+      fields: ['reviews', 'rating', 'user_ratings_total']
+    }, (place, status2) => {
+      if (status2 !== google.maps.places.PlacesServiceStatus.OK || !place) {
+        showError('Bewertungen konnten nicht geladen werden.');
+        return;
+      }
+      if (summaryEl && place.rating) {
+        summaryEl.innerHTML = `<span class="google-reviews-stars">${renderStars(place.rating)}</span> <strong>${place.rating.toFixed(1)}</strong> · ${place.user_ratings_total || 0} Bewertungen`;
+      }
+      const reviews = (place.reviews || []).slice(0, 5);
+      if (!reviews.length) {
+        showError('Noch keine Bewertungen vorhanden.');
+        return;
+      }
+      listEl.innerHTML = reviews.map((r) => `
+        <div class="google-review-card">
+          <div class="google-review-head">
+            <img src="${r.profile_photo_url}" alt="" class="google-review-avatar" loading="lazy">
+            <div>
+              <p class="google-review-author">${escapeHtml(r.author_name)}</p>
+              <span class="google-review-stars">${renderStars(r.rating)}</span>
+            </div>
+          </div>
+          <p class="google-review-text">${escapeHtml(r.text)}</p>
+          <p class="google-review-time">${escapeHtml(r.relative_time_description)}</p>
+        </div>
+      `).join('');
+    });
+  });
+}
