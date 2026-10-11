@@ -1741,17 +1741,6 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   gap:32px;
   margin:32px auto 0;
 }
-.google-reviews-embed{
-  margin:40px auto 0;
-  max-width:920px;
-}
-.google-reviews-embed h3{
-  font-family:var(--font-display);
-  font-size:1.5rem;
-  color:var(--cream);
-  margin-bottom:20px;
-  text-align:center;
-}
 .social-proof-card{
   text-align:center;
   display:flex;
