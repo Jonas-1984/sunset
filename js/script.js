@@ -879,7 +879,9 @@ async function initGoogleReviews() {
   const summaryEl = document.getElementById('google-reviews-summary');
   if (!slideEl || !window.google) return;
 
-  const showError = (msg) => { slideEl.innerHTML = `<p class="google-reviews-error">${msg}</p>`; };
+  // Fällt auf den ursprünglichen, statischen Satz zurück, falls die API
+  // nicht erreichbar ist - die Karte wirkt dann weiterhin fertig/beabsichtigt.
+  const fallback = () => {};
 
   try {
     const { Place } = await google.maps.importLibrary('places');
@@ -887,7 +889,7 @@ async function initGoogleReviews() {
       textQuery: 'Sunset Restaurant und Bar, Friedrich-Ludwig-Jahn-Str. 11, 84453 Mühldorf am Inn',
       fields: ['id']
     });
-    if (!places || !places[0]) { showError('Bewertungen konnten nicht geladen werden.'); return; }
+    if (!places || !places[0]) { fallback(); return; }
 
     const place = new Place({ id: places[0].id });
     await place.fetchFields({ fields: ['reviews', 'rating', 'userRatingCount'] });
@@ -897,22 +899,15 @@ async function initGoogleReviews() {
     }
 
     const reviews = (place.reviews || []).slice(0, 5);
-    if (!reviews.length) { showError('Noch keine Bewertungen vorhanden.'); return; }
+    if (!reviews.length) { fallback(); return; }
 
     const renderReview = (r) => {
       const authorName = r.authorAttribution?.displayName || '';
-      const authorPhoto = r.authorAttribution?.photoURI || '';
       slideEl.innerHTML = `
         <div class="google-review-item">
-          <div class="google-review-head">
-            ${authorPhoto ? `<img src="${authorPhoto}" alt="" class="google-review-avatar" loading="lazy">` : ''}
-            <div>
-              <p class="google-review-author">${escapeHtml(authorName)}</p>
-              <span class="google-reviews-stars">${renderStars(r.rating)}</span>
-            </div>
-          </div>
-          <p class="google-review-text">${escapeHtml(r.text)}</p>
-          <p class="google-review-time">${escapeHtml(r.relativePublishTimeDescription)}</p>
+          <span class="google-reviews-stars">${renderStars(r.rating)}</span>
+          <p class="google-review-text">„${escapeHtml(r.text)}"</p>
+          <p class="google-review-author">${escapeHtml(authorName)} <span class="google-review-time">· ${escapeHtml(r.relativePublishTimeDescription)}</span></p>
         </div>
       `;
     };
@@ -926,6 +921,6 @@ async function initGoogleReviews() {
       }, 8000);
     }
   } catch (err) {
-    showError('Bewertungen konnten nicht geladen werden.');
+    fallback();
   }
 }
