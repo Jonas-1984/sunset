@@ -856,9 +856,8 @@ document.addEventListener('DOMContentLoaded', () => {
 (() => {
   if (!window.GOOGLE_MAPS_API_KEY) return;
   const s = document.createElement('script');
-  s.src = `https://maps.googleapis.com/maps/api/js?key=${window.GOOGLE_MAPS_API_KEY}&libraries=places&callback=initGoogleReviews`;
+  s.src = `https://maps.googleapis.com/maps/api/js?key=${window.GOOGLE_MAPS_API_KEY}&libraries=places&loading=async&callback=initGoogleReviews`;
   s.async = true;
-  s.defer = true;
   document.body.appendChild(s);
 })();
 
@@ -869,57 +868,64 @@ function escapeHtml(str) {
 }
 
 function renderStars(rating) {
-  const full = Math.round(rating);
+  const full = Math.round(rating || 0);
   let out = '';
   for (let i = 1; i <= 5; i++) out += i <= full ? '★' : '☆';
   return out;
 }
 
-function initGoogleReviews() {
-  const listEl = document.getElementById('google-reviews-list');
+async function initGoogleReviews() {
+  const slideEl = document.getElementById('google-reviews-slide');
   const summaryEl = document.getElementById('google-reviews-summary');
-  if (!listEl || !window.google || !google.maps.places) return;
+  if (!slideEl || !window.google) return;
 
-  const showError = (msg) => { listEl.innerHTML = `<p class="google-reviews-error">${msg}</p>`; };
+  const showError = (msg) => { slideEl.innerHTML = `<p class="google-reviews-error">${msg}</p>`; };
 
-  const service = new google.maps.places.PlacesService(document.createElement('div'));
-  service.findPlaceFromQuery({
-    query: 'Sunset Restaurant und Bar, Friedrich-Ludwig-Jahn-Str. 11, 84453 Mühldorf am Inn',
-    fields: ['place_id']
-  }, (results, status) => {
-    if (status !== google.maps.places.PlacesServiceStatus.OK || !results || !results[0]) {
-      showError('Bewertungen konnten nicht geladen werden.');
-      return;
+  try {
+    const { Place } = await google.maps.importLibrary('places');
+    const { places } = await Place.searchByText({
+      textQuery: 'Sunset Restaurant und Bar, Friedrich-Ludwig-Jahn-Str. 11, 84453 Mühldorf am Inn',
+      fields: ['id']
+    });
+    if (!places || !places[0]) { showError('Bewertungen konnten nicht geladen werden.'); return; }
+
+    const place = new Place({ id: places[0].id });
+    await place.fetchFields({ fields: ['reviews', 'rating', 'userRatingCount'] });
+
+    if (summaryEl && place.rating) {
+      summaryEl.innerHTML = `<span class="google-reviews-stars">${renderStars(place.rating)}</span> <strong>${place.rating.toFixed(1)}</strong> · ${place.userRatingCount || 0} Bewertungen`;
     }
-    service.getDetails({
-      placeId: results[0].place_id,
-      fields: ['reviews', 'rating', 'user_ratings_total']
-    }, (place, status2) => {
-      if (status2 !== google.maps.places.PlacesServiceStatus.OK || !place) {
-        showError('Bewertungen konnten nicht geladen werden.');
-        return;
-      }
-      if (summaryEl && place.rating) {
-        summaryEl.innerHTML = `<span class="google-reviews-stars">${renderStars(place.rating)}</span> <strong>${place.rating.toFixed(1)}</strong> · ${place.user_ratings_total || 0} Bewertungen`;
-      }
-      const reviews = (place.reviews || []).slice(0, 5);
-      if (!reviews.length) {
-        showError('Noch keine Bewertungen vorhanden.');
-        return;
-      }
-      listEl.innerHTML = reviews.map((r) => `
-        <div class="google-review-card">
+
+    const reviews = (place.reviews || []).slice(0, 5);
+    if (!reviews.length) { showError('Noch keine Bewertungen vorhanden.'); return; }
+
+    const renderReview = (r) => {
+      const authorName = r.authorAttribution?.displayName || '';
+      const authorPhoto = r.authorAttribution?.photoURI || '';
+      slideEl.innerHTML = `
+        <div class="google-review-item">
           <div class="google-review-head">
-            <img src="${r.profile_photo_url}" alt="" class="google-review-avatar" loading="lazy">
+            ${authorPhoto ? `<img src="${authorPhoto}" alt="" class="google-review-avatar" loading="lazy">` : ''}
             <div>
-              <p class="google-review-author">${escapeHtml(r.author_name)}</p>
-              <span class="google-review-stars">${renderStars(r.rating)}</span>
+              <p class="google-review-author">${escapeHtml(authorName)}</p>
+              <span class="google-reviews-stars">${renderStars(r.rating)}</span>
             </div>
           </div>
           <p class="google-review-text">${escapeHtml(r.text)}</p>
-          <p class="google-review-time">${escapeHtml(r.relative_time_description)}</p>
+          <p class="google-review-time">${escapeHtml(r.relativePublishTimeDescription)}</p>
         </div>
-      `).join('');
-    });
-  });
+      `;
+    };
+
+    let reviewIndex = 0;
+    renderReview(reviews[reviewIndex]);
+    if (reviews.length > 1) {
+      setInterval(() => {
+        reviewIndex = (reviewIndex + 1) % reviews.length;
+        renderReview(reviews[reviewIndex]);
+      }, 8000);
+    }
+  } catch (err) {
+    showError('Bewertungen konnten nicht geladen werden.');
+  }
 }
