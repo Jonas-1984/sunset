@@ -1110,6 +1110,7 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   font-size:.9rem;
   color:var(--coral);
 }
+.drink-menu-highlight{ color:var(--gold); }
 .modal-body .drink-menu-quote{
   margin-top:24px;
   font-size:clamp(1.4rem, 2.4vw, 1.7rem);
