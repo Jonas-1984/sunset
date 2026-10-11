@@ -1465,7 +1465,7 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
    Kante und 3D-wirkendem Schlagschatten + innerem Bevel statt Freisteller. */
 .gallery-media-drink{
   width:180px;
-  aspect-ratio:332/640; /* exakte Fotogröße, damit nichts beschnitten wird */
+  aspect-ratio:2/3; /* exakte Fotogröße der neuen Getränke-Bilder, damit nichts beschnitten wird */
   flex-shrink:0;
 }
 .gallery-media-drink img{
