@@ -743,6 +743,24 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   border-color:transparent;
   box-shadow:0 6px 20px rgba(255,94,58,.35);
 }
+@media (max-width:700px){
+  .menu-tabs{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
+  }
+  .menu-tab{
+    width:100%;
+    min-height:52px;
+    padding:8px 6px;
+    font-size:.8rem;
+    line-height:1.2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+}
 
 .menu-panel{ display:none; }
 .menu-panel.active{ display:block; }
@@ -1020,6 +1038,7 @@ body.christmas-time .hero-title-card{ margin-top:2cm; }
   display:flex;
   flex-direction:column;
 }
+.specialty-card-full{ grid-column:1 / -1; }
 .specialty-title{
   font-family:var(--font-display);
   font-size:1.4rem;
