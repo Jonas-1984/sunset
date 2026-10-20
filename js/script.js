@@ -32,6 +32,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isChristmasTime) document.body.classList.add('christmas-time');
   })();
 
+  /* ---------------- Halloween-Logo (20. Okt. – 1. Nov. 2026, einmalige Aktion) ---------------- */
+  (() => {
+    const logo = document.querySelector('.hero-title-logo');
+    if (!logo) return;
+    const params = new URLSearchParams(location.search);
+    // Vorschau zum Testen: index.html?halloweenlogo=1 erzwingt das Halloween-Logo
+    // unabhängig vom aktuellen Datum.
+    if (params.get('halloweenlogo') === '1') {
+      logo.src = 'image/logo-sunset-halloween.png';
+      return;
+    }
+    const now = new Date();
+    const start = new Date(2026, 9, 20);        // 20. Oktober 2026
+    const end = new Date(2026, 10, 1, 23, 59, 59); // 1. November 2026, Tagesende
+    if (now >= start && now <= end) {
+      logo.src = 'image/logo-sunset-halloween.png';
+    }
+  })();
+
   /* ---------------- Augustiner: Bilder wechseln wie das Galerie-Karussell ---------------- */
   (() => {
     const slides = document.querySelectorAll('#augustiner-slides .augustiner-slide');
